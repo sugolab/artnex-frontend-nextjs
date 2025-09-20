@@ -1,0 +1,17 @@
+{
+  "extractedAt": "2025-09-20T11:43:16.117Z",
+  "totalLayers": 1,
+  "layers": [
+    {
+      "id": "2:4652",
+      "name": "Footer",
+      "type": "instance",
+      "x": 0,
+      "y": 990,
+      "width": 1920,
+      "height": 90,
+      "sectionLink": "https://www.figma.com/design/abc123def456?node-id=2%3A4652",
+      "directLink": "https://www.figma.com/design/abc123def456?node-id=2%3A4652&mode=design"
+    }
+  ]
+}

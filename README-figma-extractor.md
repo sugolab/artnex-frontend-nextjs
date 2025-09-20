@@ -1,6 +1,6 @@
-# 피그마 레이어 추출기
+# 피그마 URL 기반 레이어 추출기
 
-피그마 MCP 서버를 이용해서 페이지의 모든 레이어 정보와 섹션 링크를 추출하는 도구입니다.
+피그마 페이지 URL을 입력받아서 해당 페이지의 모든 레이어 정보와 섹션 링크를 추출하는 도구입니다.
 
 ## 기능
 
@@ -17,28 +17,37 @@ npm install xml2js
 
 ## 사용법
 
-### 기본 사용법
+### URL 기반 추출
 
 ```javascript
-const FigmaMCPExtractor = require('./figma-extractor-example');
+const { extractFromUrl } = require('./figma-url-example');
 
-const extractor = new FigmaMCPExtractor();
+// 피그마 URL로 레이어 정보 추출
+const result = await extractFromUrl('https://www.figma.com/design/FILE_KEY/Design-Name?node-id=1-2');
 
-// 레이어 추출 실행
-const layers = await extractor.extractFromCurrentPage('your-figma-file-key');
-
-// 결과 출력
-console.log(`총 ${layers.length}개의 레이어가 추출되었습니다.`);
+console.log(`총 ${result.totalLayers}개의 레이어가 추출되었습니다.`);
 ```
 
 ### CLI로 실행
 
 ```bash
-# npm 스크립트로 실행
-npm run extract-figma
+# 기본 레이어 추출
+npm run extract-url "https://www.figma.com/design/FILE_KEY/Design-Name"
+
+# 특정 레이어들의 코드 생성
+npm run extract-url "https://www.figma.com/design/FILE_KEY/Design-Name" --code Button Footer
 
 # 직접 실행
-node figma-extractor-example.js
+node figma-url-example.js "YOUR_FIGMA_URL"
+```
+
+### 지원되는 URL 형식
+
+```
+https://www.figma.com/design/FILE_KEY/Design-Name
+https://www.figma.com/design/FILE_KEY/Design-Name?node-id=1-2
+https://www.figma.com/file/FILE_KEY/Design-Name
+https://www.figma.com/file/FILE_KEY/Design-Name?node-id=1-2
 ```
 
 ### 결과 내보내기

@@ -7,15 +7,22 @@
     "build": "next build --turbopack",
     "start": "next start",
     "lint": "eslint",
-    "extract-figma": "node figma-extractor-example.js"
+    "extract-figma": "node figma-extractor-example.js",
+    "extract-url": "node figma-url-example.js",
+    "extract-api": "node figma-api-example.js",
+    "extract-screens": "node figma-screen-extractor.js",
+    "extract-sections": "node figma-screen-extractor.js --screen-id"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
+    "clsx": "^2.1.1",
+    "dotenv": "^16.6.1",
     "lucide-react": "^0.544.0",
     "next": "15.5.3",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-hook-form": "^7.62.0",
+    "tailwind-merge": "^3.3.1",
     "xml2js": "^0.6.2",
     "zod": "^4.1.9",
     "zustand": "^5.0.8"

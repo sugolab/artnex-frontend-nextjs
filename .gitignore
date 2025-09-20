@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# figma api files and secrets
+test-with-your-file.sh
+**/figma-*.json
+**/figma-*.md
+!figma-screens-report-*.md
+!figma-analysis-report-*.md
