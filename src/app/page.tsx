@@ -28,7 +28,7 @@ export default function MainPage() {
       <main className="relative z-10 px-[50px] pt-[140px]">
         <h1 className="text-[50px] leading-[57px] text-white font-poppins font-medium mb-[30px]">
           Build your<br />
-          brand's world.
+          brand&apos;s world.
         </h1>
         
         <div className="text-white font-noto-regular text-base leading-[25px] space-y-1 max-w-[316px]">

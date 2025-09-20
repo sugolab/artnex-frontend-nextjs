@@ -32,7 +32,6 @@ export default function BrandIdentityPage() {
     register,
     handleSubmit,
     formState: { errors },
-    watch,
   } = useForm<BrandIdentityFormData>({
     resolver: zodResolver(brandIdentitySchema),
     defaultValues: {
@@ -42,7 +41,6 @@ export default function BrandIdentityPage() {
     },
   });
 
-  const watchedValues = watch();
   const isFormValid = canProceedToNextStep();
 
   const onSubmit = (data: BrandIdentityFormData) => {

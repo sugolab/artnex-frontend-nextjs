@@ -69,3 +69,77 @@ export interface BrandManagementData {
   targetIncome: string[];
   buyingStyle: string;
 }
+
+export interface BrandPlanningData {
+  differentiationPoint: string;
+  marketingChannels: string[];
+  brandTone: string;
+  marketPosition: string;
+  pricingStrategy: string;
+}
+
+export interface CompetitorAnalysisData {
+  directCompetitors: Array<{
+    name: string;
+    strengths: string;
+    weaknesses: string;
+  }>;
+  indirectAlternatives: string;
+  overlappingCustomers: string;
+  competitiveAdvantage: string;
+  uniqueValue: string;
+}
+
+export interface BrandLogoData {
+  designStyle: string;
+  brandColors: string[];
+  logoEmotion: string;
+  logoDescription: string;
+  referenceStyle: string;
+  generatedImages: string[];
+}
+
+export interface ReportData {
+  brandVision: string;
+  brandSlogan: string;
+  brandStory: string;
+  brandName: string;
+  productNames: string[];
+  priceRange: {
+    min: number;
+    max: number;
+  };
+  category: string;
+  website: string;
+  targetAudience: {
+    gender: string[];
+    ageRange: string[];
+    occupation: string[];
+    income: string[];
+    buyingStyle: string;
+  };
+  differentiationPoint: string;
+  marketingChannels: string[];
+  brandTone: string;
+  marketPosition: string;
+  pricingStrategy: string;
+  competitorAnalysis: {
+    directCompetitors: Array<{
+      name: string;
+      strengths: string;
+      weaknesses: string;
+    }>;
+    indirectAlternatives: string;
+    overlappingCustomers: string;
+    competitiveAdvantage: string;
+    uniqueValue: string;
+  };
+  logoDesign: {
+    designStyle: string;
+    brandColors: string[];
+    logoEmotion: string;
+    logoDescription: string;
+    referenceStyle: string;
+    generatedImages: string[];
+  };
+}

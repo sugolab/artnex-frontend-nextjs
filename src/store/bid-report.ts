@@ -1,18 +1,18 @@
 import { create } from 'zustand';
-import { BidReportState, BrandIdentityData, BrandManagementData } from '@/types/bid-report';
+import { BidReportState, BrandIdentityData, BrandManagementData, BrandPlanningData, CompetitorAnalysisData, BrandLogoData, ReportData } from '@/types/bid-report';
 
 interface BidReportActions {
   updateBrandIdentity: (data: BrandIdentityData) => void;
   updateBrandManagement: (data: BrandManagementData) => void;
-  updateBrandPlanning: (data: any) => void;
-  updateCompetitorAnalysis: (data: any) => void;
-  updateBrandLogo: (data: any) => void;
+  updateBrandPlanning: (data: BrandPlanningData) => void;
+  updateCompetitorAnalysis: (data: CompetitorAnalysisData) => void;
+  updateBrandLogo: (data: BrandLogoData) => void;
   nextStep: () => void;
   prevStep: () => void;
   setIsSubmitting: (isSubmitting: boolean) => void;
   resetStore: () => void;
   canProceedToNextStep: () => boolean;
-  getReportData: () => any;
+  getReportData: () => ReportData;
 }
 
 const initialState: BidReportState = {
@@ -78,15 +78,15 @@ export const useBidReportStore = create<BidReportState & BidReportActions>((set,
     set((state) => ({ ...state, ...data }));
   },
 
-  updateBrandPlanning: (data: any) => {
+  updateBrandPlanning: (data: BrandPlanningData) => {
     set((state) => ({ ...state, ...data }));
   },
 
-  updateCompetitorAnalysis: (data: any) => {
+  updateCompetitorAnalysis: (data: CompetitorAnalysisData) => {
     set((state) => ({ ...state, ...data }));
   },
 
-  updateBrandLogo: (data: any) => {
+  updateBrandLogo: (data: BrandLogoData) => {
     set((state) => ({ ...state, ...data }));
   },
 

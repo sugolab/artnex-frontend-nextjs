@@ -11,7 +11,7 @@ import { useBidReportStore } from '@/store/bid-report';
 
 const brandManagementSchema = z.object({
   brandName: z.string().min(1, '브랜드명을 입력해주세요'),
-  productNames: z.array(z.string().min(1, '제품명을 입력해주세요')).min(1, '최소 1개 이상의 제품명을 입력해주세요'),
+  productNames: z.array(z.object({ name: z.string().min(1, '제품명을 입력해주세요') })).min(1, '최소 1개 이상의 제품명을 입력해주세요'),
   priceRangeMin: z.number().min(1, '최소 가격을 입력해주세요'),
   priceRangeMax: z.number().min(1, '최대 가격을 입력해주세요'),
   category: z.string().min(1, '카테고리를 선택해주세요'),
@@ -56,7 +56,7 @@ export default function BrandManagementPage() {
     resolver: zodResolver(brandManagementSchema),
     defaultValues: {
       brandName,
-      productNames: productNames.length > 0 ? productNames : [''],
+      productNames: productNames.length > 0 ? productNames.map(name => ({ name })) : [{ name: '' }],
       priceRangeMin,
       priceRangeMax,
       category,
@@ -69,15 +69,16 @@ export default function BrandManagementPage() {
     },
   });
 
-  const { fields, append, remove } = useFieldArray({
+  const { fields, append, remove } = useFieldArray<BrandManagementFormData>({
     control,
     name: 'productNames',
   });
 
   const onSubmit = (data: BrandManagementFormData) => {
-    const filteredProductNames = data.productNames.filter(name => name.trim() !== '');
+    const filteredProductNames = data.productNames.map(item => item.name).filter(name => name.trim() !== '');
     updateBrandManagement({
       ...data,
+      website: data.website || '',
       productNames: filteredProductNames,
       logo: null, // File upload will be handled separately
     });
@@ -129,7 +130,7 @@ export default function BrandManagementPage() {
             {fields.map((field, index) => (
               <div key={field.id} className="flex items-center space-x-3">
                 <input
-                  {...register(`productNames.${index}`)}
+                  {...register(`productNames.${index}.name`)}
                   type="text"
                   className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   placeholder={`제품명 ${index + 1}`}
@@ -147,7 +148,7 @@ export default function BrandManagementPage() {
             ))}
             <button
               type="button"
-              onClick={() => append('')}
+              onClick={() => append({ name: '' })}
               className="flex items-center space-x-2 text-blue-600 hover:text-blue-700"
             >
               <Plus size={20} />

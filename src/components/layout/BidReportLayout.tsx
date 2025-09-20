@@ -37,7 +37,7 @@ export default function BidReportLayout({ children, title, currentStep }: BidRep
                   01. Brand Identity
                 </div>
                 <div className={`p-md rounded-md font-noto-regular transition-colors ${currentStep === 2 ? 'bg-primary-50 text-primary-700' : 'text-neutral-600 hover:bg-neutral-50'}`}>
-                  02. Brand's Management
+                  02. Brand&apos;s Management
                 </div>
                 <div className={`p-md rounded-md font-noto-regular transition-colors ${currentStep === 3 ? 'bg-primary-50 text-primary-700' : 'text-neutral-600 hover:bg-neutral-50'}`}>
                   03. Brand Planning
