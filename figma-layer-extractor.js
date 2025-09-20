@@ -91,7 +91,16 @@ class FigmaLayerExtractor {
     return this.layers.filter(layer => regex.test(layer.name));
   }
 
-  exportToJSON(filename = 'figma-layers.json') {
+  exportToJSON(filename) {
+    if (!filename) {
+      const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+      const fileKey = this.figmaFileKey ? `_${this.figmaFileKey.slice(0, 8)}` : '';
+      filename = `figma-layers${fileKey}_${timestamp}.json`;
+    }
+
+    // 파일이 이미 존재하는 경우 번호 추가
+    filename = this.getUniqueFilename(filename);
+
     const data = {
       extractedAt: new Date().toISOString(),
       totalLayers: this.layers.length,
@@ -103,11 +112,20 @@ class FigmaLayerExtractor {
     console.log(`레이어 정보가 ${filename}에 저장되었습니다.`);
   }
 
-  exportToCSV(filename = 'figma-layers.csv') {
+  exportToCSV(filename) {
     if (this.layers.length === 0) {
       console.log('추출된 레이어가 없습니다.');
       return;
     }
+
+    if (!filename) {
+      const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+      const fileKey = this.figmaFileKey ? `_${this.figmaFileKey.slice(0, 8)}` : '';
+      filename = `figma-layers${fileKey}_${timestamp}.csv`;
+    }
+
+    // 파일이 이미 존재하는 경우 번호 추가
+    filename = this.getUniqueFilename(filename);
 
     const headers = ['ID', 'Name', 'Type', 'X', 'Y', 'Width', 'Height', 'Path', 'Section Link'];
     const csvContent = [
@@ -127,6 +145,26 @@ class FigmaLayerExtractor {
 
     fs.writeFileSync(filename, csvContent);
     console.log(`레이어 정보가 ${filename}에 저장되었습니다.`);
+  }
+
+  getUniqueFilename(filename) {
+    if (!fs.existsSync(filename)) {
+      return filename;
+    }
+
+    const path = require('path');
+    const ext = path.extname(filename);
+    const base = filename.slice(0, -ext.length);
+    
+    let counter = 1;
+    let newFilename;
+    
+    do {
+      newFilename = `${base}_${counter}${ext}`;
+      counter++;
+    } while (fs.existsSync(newFilename));
+    
+    return newFilename;
   }
 
   printSummary() {

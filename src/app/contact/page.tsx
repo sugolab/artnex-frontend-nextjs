@@ -1,9 +1,12 @@
 'use client';
 
 import { useState } from 'react';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
-import Image from 'next/image';
+import { GNB, Footer } from '@/components/layout';
+import { Button, TextBox } from '@/components/common';
+import { 
+  Send, Phone, Mail, MapPin, Clock, 
+  CheckCircle, ChevronDown 
+} from 'lucide-react';
 
 interface FormData {
   consultingField: string;
@@ -78,43 +81,45 @@ export default function ContactPage() {
 
   if (isSubmitted) {
     return (
-      <div className="min-h-screen bg-white">
-        {/* Header */}
-        <Header variant="black" />
+      <div className="min-h-screen bg-gray-50">
+        {/* GNB */}
+        <GNB />
 
         {/* Success Content */}
-        <main className="relative">
-          {/* Background Pattern */}
-          <div className="absolute inset-0 overflow-hidden">
-            <Image
-              src="/assets/771d197a8f7cc251bb0a1c0439084d132f6d1cbe.svg"
-              alt="Background Pattern"
-              fill
-              className="object-cover opacity-30"
-              priority
-            />
-          </div>
-
-          <div className="relative z-10 max-w-[1920px] mx-auto px-5">
-            <div className="pt-[300px] pb-[300px] text-center">
-              <h1 className="text-[50px] leading-[58px] font-poppins font-medium text-black mb-[20px]">
-                CONTACT US
+        <main className="py-20">
+          <div className="max-w-4xl mx-auto px-6 text-center">
+            <div className="bg-white rounded-lg shadow-sm p-12">
+              <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <CheckCircle className="w-10 h-10 text-green-600" />
+              </div>
+              
+              <h1 className="text-3xl font-noto-bold text-gray-900 mb-4">
+                문의가 접수되었습니다
               </h1>
-              <div className="text-xl leading-[29px] font-noto-regular text-[#262d33] mb-[50px]">
+              
+              <div className="text-lg font-noto-medium text-gray-600 mb-8">
                 <p>문의문이 정상적으로 접수되었습니다.</p>
                 <p>담당자가 검토 후 연락드리겠습니다.</p>
               </div>
               
-              <button 
-                onClick={() => window.location.href = '/'}
-                className="bg-black text-white font-noto-medium text-lg px-8 py-3 rounded hover:bg-gray-900 transition-colors flex items-center gap-2 mx-auto"
-              >
-                메인페이지로 이동
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M5 12h14"/>
-                  <path d="M12 5l7 7-7 7"/>
-                </svg>
-              </button>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button
+                  size="medium"
+                  onClick={() => window.location.href = '/'}
+                  className="bg-blue-600 hover:bg-blue-700 text-white"
+                >
+                  메인페이지로 이동
+                </Button>
+                
+                <Button
+                  size="medium"
+                  variant="outlined"
+                  onClick={() => window.location.href = '/contact'}
+                  className="border-gray-300 text-gray-700 hover:bg-gray-50"
+                >
+                  다시 문의하기
+                </Button>
+              </div>
             </div>
           </div>
         </main>
@@ -126,193 +131,221 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Header */}
-      <Header variant="black" />
+    <div className="min-h-screen bg-gray-50">
+      {/* GNB */}
+      <GNB />
 
-      {/* Main Content */}
-      <main className="relative">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 overflow-hidden">
-          <Image
-            src="/assets/d7ed785305b449ecb7cc92e6f51cdc619b98b1cb.svg"
-            alt="Background Pattern"
-            fill
-            className="object-cover opacity-30"
-            priority
-          />
-        </div>
+      {/* Hero Section */}
+      <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-20">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h1 className="text-4xl md:text-5xl font-noto-bold text-gray-900 mb-6">
+            Contact Us
+          </h1>
+          <p className="text-xl font-noto-medium text-gray-600 mb-8">
+            실시간 고객 행동 분석과 아트넥스만의 AI 기술을 활용하여<br />
+            개인화된 브랜드 경험을 창출하고, 브랜드만의 독특한 가치를 강화합니다.
+          </p>
 
-        <div className="relative z-10 max-w-[1920px] mx-auto px-5">
-          {/* Page Title */}
-          <div className="pt-[184px] pb-[42px] text-center">
-            <h1 className="text-[50px] leading-[58px] font-poppins font-medium text-black mb-[20px]">
-              CONTACT US
-            </h1>
-            <div className="text-xl leading-[29px] font-noto-regular text-[#262d33]">
-              <p>실시간 고객 행동 분석과 아트넥스만의 AI 기술을 활용하여</p>
-              <p>개인화된 브랜드 경험을 창출하고, 브랜드만의 독특한 가치를 강화합니다.</p>
+          {/* Contact Info */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+            <div className="bg-white/80 backdrop-blur-sm rounded-lg p-6">
+              <Phone className="w-8 h-8 text-blue-600 mx-auto mb-3" />
+              <h3 className="font-noto-bold text-gray-900 mb-2">전화 문의</h3>
+              <p className="text-gray-600 font-noto-medium">02-1234-5678</p>
+              <p className="text-sm text-gray-500">평일 09:00 - 18:00</p>
+            </div>
+            
+            <div className="bg-white/80 backdrop-blur-sm rounded-lg p-6">
+              <Mail className="w-8 h-8 text-green-600 mx-auto mb-3" />
+              <h3 className="font-noto-bold text-gray-900 mb-2">이메일 문의</h3>
+              <p className="text-gray-600 font-noto-medium">contact@artnex.co.kr</p>
+              <p className="text-sm text-gray-500">24시간 접수</p>
+            </div>
+            
+            <div className="bg-white/80 backdrop-blur-sm rounded-lg p-6">
+              <MapPin className="w-8 h-8 text-purple-600 mx-auto mb-3" />
+              <h3 className="font-noto-bold text-gray-900 mb-2">방문 상담</h3>
+              <p className="text-gray-600 font-noto-medium">서울시 강남구</p>
+              <p className="text-sm text-gray-500">사전 예약 필수</p>
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* Contact Form */}
-          <div className="flex justify-center pb-[91px]">
-            <form onSubmit={handleSubmit} className="w-[500px] space-y-[50px]">
-              {/* Form Fields */}
-              <div className="space-y-[15px]">
-                <div className="space-y-[10px]">
-                  {/* Consulting Field Dropdown */}
-                  <div className="relative">
-                    <button
-                      type="button"
-                      onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                      className="w-full h-[50px] px-5 bg-white border border-[#c5ccd2] rounded-[5px] flex items-center justify-between font-noto-regular text-base text-neutral-500"
-                    >
-                      <span>
-                        {formData.consultingField || '상담분야를 선택해주세요.'}
-                      </span>
-                      <svg
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        className={`transform transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`}
-                      >
-                        <path
-                          d="M7 10L12 15L17 10"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </button>
-                    
-                    {isDropdownOpen && (
-                      <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-[#c5ccd2] rounded-[5px] shadow-lg z-20">
-                        {consultingOptions.map((option) => (
-                          <button
-                            key={option}
-                            type="button"
-                            onClick={() => {
-                              handleInputChange('consultingField', option);
-                              setIsDropdownOpen(false);
-                            }}
-                            className="w-full px-5 py-3 text-left font-noto-regular text-base text-black hover:bg-gray-50 first:rounded-t-[5px] last:rounded-b-[5px]"
-                          >
-                            {option}
-                          </button>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                </div>
-
-                {/* Text Input Fields */}
-                <input
-                  type="text"
-                  placeholder="회사명"
-                  value={formData.companyName}
-                  onChange={(e) => handleInputChange('companyName', e.target.value)}
-                  className="w-full h-[50px] px-5 bg-white border border-[#c5ccd2] rounded-[5px] font-noto-regular text-base placeholder:text-neutral-500"
-                />
-
-                <input
-                  type="text"
-                  placeholder="담당부서"
-                  value={formData.department}
-                  onChange={(e) => handleInputChange('department', e.target.value)}
-                  className="w-full h-[50px] px-5 bg-white border border-[#c5ccd2] rounded-[5px] font-noto-regular text-base placeholder:text-neutral-500"
-                />
-
-                <input
-                  type="text"
-                  placeholder="담당자 이름"
-                  value={formData.contactName}
-                  onChange={(e) => handleInputChange('contactName', e.target.value)}
-                  className="w-full h-[50px] px-5 bg-white border border-[#c5ccd2] rounded-[5px] font-noto-regular text-base placeholder:text-neutral-500"
-                />
-
-                <input
-                  type="text"
-                  placeholder="직함"
-                  value={formData.position}
-                  onChange={(e) => handleInputChange('position', e.target.value)}
-                  className="w-full h-[50px] px-5 bg-white border border-[#c5ccd2] rounded-[5px] font-noto-regular text-base placeholder:text-neutral-500"
-                />
-
-                <input
-                  type="email"
-                  placeholder="이메일 주소"
-                  value={formData.email}
-                  onChange={(e) => handleInputChange('email', e.target.value)}
-                  className="w-full h-[50px] px-5 bg-white border border-[#c5ccd2] rounded-[5px] font-noto-regular text-base placeholder:text-neutral-500"
-                />
-
-                <input
-                  type="tel"
-                  placeholder="휴대폰 번호"
-                  value={formData.phone}
-                  onChange={(e) => handleInputChange('phone', e.target.value)}
-                  className="w-full h-[50px] px-5 bg-white border border-[#c5ccd2] rounded-[5px] font-noto-regular text-base placeholder:text-neutral-500"
-                />
-
-                {/* Message Textarea */}
-                <textarea
-                  placeholder="상담하고자 하는 내용을 작성해주세요."
-                  value={formData.message}
-                  onChange={(e) => handleInputChange('message', e.target.value)}
-                  rows={10}
-                  className="w-full h-[250px] p-5 bg-white border border-[#dddddd] rounded-[5px] font-noto-regular text-[15px] leading-[22px] placeholder:text-neutral-500 resize-none"
-                />
-
-                {/* Checkbox */}
-                <div className="flex items-center gap-[10px]">
+      {/* Contact Form Section */}
+      <section className="py-20">
+        <div className="max-w-2xl mx-auto px-6">
+          <div className="bg-white rounded-lg shadow-sm p-8">
+            <h2 className="text-2xl font-noto-bold text-gray-900 mb-6 text-center">
+              문의하기
+            </h2>
+            
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Consulting Field Dropdown */}
+              <div>
+                <label className="block text-sm font-noto-medium text-gray-700 mb-2">
+                  상담분야 *
+                </label>
+                <div className="relative">
                   <button
                     type="button"
-                    onClick={() => handleInputChange('agreeToTerms', !formData.agreeToTerms)}
-                    className="flex items-center justify-center w-5 h-5 border border-gray-300 rounded bg-white"
+                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                    className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg flex items-center justify-between font-noto-medium text-gray-700 hover:border-blue-500 focus:border-blue-500 focus:outline-none"
                   >
-                    {formData.agreeToTerms && (
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                        <path
-                          d="M20 6L9 17L4 12"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    )}
+                    <span className={formData.consultingField ? 'text-gray-900' : 'text-gray-500'}>
+                      {formData.consultingField || '상담분야를 선택해주세요'}
+                    </span>
+                    <ChevronDown className={`w-5 h-5 text-gray-400 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
                   </button>
-                  <label className="font-noto-medium text-sm text-[#72727b] cursor-pointer">
-                    개인 및 기업정보 수집에 동의합니다.
-                  </label>
+                  
+                  {isDropdownOpen && (
+                    <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-300 rounded-lg shadow-lg z-20">
+                      {consultingOptions.map((option) => (
+                        <button
+                          key={option}
+                          type="button"
+                          onClick={() => {
+                            handleInputChange('consultingField', option);
+                            setIsDropdownOpen(false);
+                          }}
+                          className="w-full px-4 py-3 text-left font-noto-medium text-gray-700 hover:bg-blue-50 first:rounded-t-lg last:rounded-b-lg"
+                        >
+                          {option}
+                        </button>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
 
-              {/* Submit Button */}
-              <button
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-noto-medium text-gray-700 mb-2">
+                    회사명 *
+                  </label>
+                  <TextBox
+                    value={formData.companyName}
+                    onChange={(e) => handleInputChange('companyName', e.target.value)}
+                    placeholder="회사명을 입력하세요"
+                  />
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-noto-medium text-gray-700 mb-2">
+                    담당부서
+                  </label>
+                  <TextBox
+                    value={formData.department}
+                    onChange={(e) => handleInputChange('department', e.target.value)}
+                    placeholder="담당부서를 입력하세요"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-noto-medium text-gray-700 mb-2">
+                    담당자 이름 *
+                  </label>
+                  <TextBox
+                    value={formData.contactName}
+                    onChange={(e) => handleInputChange('contactName', e.target.value)}
+                    placeholder="담당자 이름을 입력하세요"
+                  />
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-noto-medium text-gray-700 mb-2">
+                    직함
+                  </label>
+                  <TextBox
+                    value={formData.position}
+                    onChange={(e) => handleInputChange('position', e.target.value)}
+                    placeholder="직함을 입력하세요"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-noto-medium text-gray-700 mb-2">
+                    이메일 주소 *
+                  </label>
+                  <TextBox
+                    type="email"
+                    value={formData.email}
+                    onChange={(e) => handleInputChange('email', e.target.value)}
+                    placeholder="이메일 주소를 입력하세요"
+                  />
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-noto-medium text-gray-700 mb-2">
+                    휴대폰 번호 *
+                  </label>
+                  <TextBox
+                    type="tel"
+                    value={formData.phone}
+                    onChange={(e) => handleInputChange('phone', e.target.value)}
+                    placeholder="휴대폰 번호를 입력하세요"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-noto-medium text-gray-700 mb-2">
+                  문의 내용 *
+                </label>
+                <textarea
+                  value={formData.message}
+                  onChange={(e) => handleInputChange('message', e.target.value)}
+                  placeholder="상담하고자 하는 내용을 자세히 작성해주세요"
+                  rows={6}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg font-noto-medium text-gray-900 placeholder:text-gray-500 focus:border-blue-500 focus:outline-none resize-none"
+                />
+              </div>
+
+              <div className="flex items-start gap-3">
+                <button
+                  type="button"
+                  onClick={() => handleInputChange('agreeToTerms', !formData.agreeToTerms)}
+                  className="flex items-center justify-center w-5 h-5 border-2 border-gray-300 rounded mt-0.5 transition-colors"
+                  style={{ 
+                    backgroundColor: formData.agreeToTerms ? '#3B82F6' : 'white',
+                    borderColor: formData.agreeToTerms ? '#3B82F6' : '#D1D5DB'
+                  }}
+                >
+                  {formData.agreeToTerms && (
+                    <CheckCircle className="w-4 h-4 text-white" />
+                  )}
+                </button>
+                <label className="font-noto-medium text-sm text-gray-700 cursor-pointer">
+                  개인정보 수집 및 이용에 동의합니다. (필수)
+                </label>
+              </div>
+
+              <Button
                 type="submit"
+                size="large"
                 disabled={!formData.agreeToTerms || isSubmitting}
-                className="w-full h-[50px] bg-black text-white font-noto-medium text-lg rounded disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-900 transition-colors flex items-center justify-center gap-2"
+                className="w-full bg-blue-600 hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? (
-                  <>
-                    <svg className="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                    </svg>
+                  <div className="flex items-center gap-2">
+                    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                     전송 중...
-                  </>
+                  </div>
                 ) : (
-                  '보내기'
+                  <div className="flex items-center gap-2">
+                    <Send className="w-5 h-5" />
+                    문의하기
+                  </div>
                 )}
-              </button>
+              </Button>
             </form>
           </div>
         </div>
-      </main>
+      </section>
 
       {/* Footer */}
       <Footer />
