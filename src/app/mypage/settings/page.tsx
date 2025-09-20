@@ -1,13 +1,11 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
 import { Button, TextBox } from '@/components/common';
 import { GNB, Footer } from '@/components/layout';
 import { 
-  Settings, User, Bell, Shield, Database, Mail,
-  Phone, Key, Download, Trash2, Eye, EyeOff,
-  Check, X, AlertTriangle
+  User, Bell, Shield, Database, Download, Eye, EyeOff,
+  AlertTriangle
 } from 'lucide-react';
 
 interface NotificationSettings {
@@ -26,9 +24,7 @@ interface PrivacySettings {
 }
 
 export default function MyPageSettings() {
-  const router = useRouter();
   const [activeSection, setActiveSection] = useState('profile');
-  const [showPassword, setShowPassword] = useState(false);
   const [showCurrentPassword, setShowCurrentPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
 
@@ -92,7 +88,7 @@ export default function MyPageSettings() {
     }));
   };
 
-  const handlePrivacyUpdate = (key: keyof PrivacySettings, value: any) => {
+  const handlePrivacyUpdate = (key: keyof PrivacySettings, value: boolean | string) => {
     setPrivacy(prev => ({
       ...prev,
       [key]: value

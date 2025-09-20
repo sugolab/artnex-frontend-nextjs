@@ -5,8 +5,8 @@ import Link from 'next/link';
 import { Button } from '@/components/common';
 import { GNB, Footer } from '@/components/layout';
 import { 
-  Download, Share, BarChart3, Target, Users, TrendingUp, 
-  CheckCircle, AlertCircle, Lightbulb, ChevronRight,
+  Download, Share, BarChart3, Target, TrendingUp, 
+  CheckCircle, Lightbulb, ChevronRight,
   Star, Award, Zap, Globe
 } from 'lucide-react';
 
@@ -183,7 +183,7 @@ export default function ConsultingResultPage() {
   const ScoreCard = ({ title, score, icon: Icon, color }: { 
     title: string; 
     score: number; 
-    icon: any; 
+    icon: React.ComponentType<{ className?: string }>; 
     color: string;
   }) => (
     <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">

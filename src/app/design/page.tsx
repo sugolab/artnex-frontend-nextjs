@@ -6,8 +6,8 @@ import { Button, Logo } from '@/components/common';
 import { GNB, Footer } from '@/components/layout';
 import { 
   Palette, Wand2, Sparkles, Zap, Eye, Download, 
-  ChevronRight, Star, Clock, TrendingUp, Users,
-  Layers, Grid, Type, Image as ImageIcon
+  ChevronRight, Star, Clock, Users,
+  Layers, Grid, Image as ImageIcon
 } from 'lucide-react';
 
 interface DesignTool {
@@ -15,7 +15,7 @@ interface DesignTool {
   title: string;
   subtitle: string;
   description: string;
-  icon: any;
+  icon: React.ComponentType<{ className?: string }>;
   features: string[];
   estimatedTime: string;
   complexity: 'beginner' | 'intermediate' | 'advanced';

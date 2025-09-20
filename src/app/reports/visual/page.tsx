@@ -5,9 +5,9 @@ import Link from 'next/link';
 import { Button } from '@/components/common';
 import { GNB, Footer } from '@/components/layout';
 import { 
-  Download, Share, Eye, Palette, Type, Image as ImageIcon,
-  Star, TrendingUp, Target, Award, CheckCircle, AlertTriangle,
-  Zap, Grid, Layers, Camera
+  Download, Share, Palette, Type, Image as ImageIcon,
+  TrendingUp, Award, CheckCircle,
+  Zap, Grid, Camera
 } from 'lucide-react';
 
 interface VisualReportData {
@@ -192,7 +192,7 @@ export default function VisualReportPage() {
   const ScoreCard = ({ title, score, icon: Icon, color }: { 
     title: string; 
     score: number; 
-    icon: any; 
+    icon: React.ComponentType<{ className?: string }>; 
     color: string;
   }) => (
     <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">

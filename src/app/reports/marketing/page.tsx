@@ -5,9 +5,9 @@ import Link from 'next/link';
 import { Button } from '@/components/common';
 import { GNB, Footer } from '@/components/layout';
 import { 
-  Download, Share, TrendingUp, Target, Users, DollarSign,
-  BarChart3, PieChart, Activity, Globe, Smartphone, Mail,
-  MessageSquare, Search, Star, ChevronUp, ChevronDown, AlertCircle
+  Download, Share, TrendingUp, Target, Users,
+  BarChart3, Activity, Globe,
+  MessageSquare, Search, Star, ChevronUp, ChevronDown
 } from 'lucide-react';
 
 interface MarketingReportData {
@@ -315,7 +315,7 @@ export default function MarketingReportPage() {
   const ScoreCard = ({ title, score, icon: Icon, color }: { 
     title: string; 
     score: number; 
-    icon: any; 
+    icon: React.ComponentType<{ className?: string }>; 
     color: string;
   }) => (
     <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">

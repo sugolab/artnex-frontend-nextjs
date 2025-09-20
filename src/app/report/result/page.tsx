@@ -90,7 +90,7 @@ export default function ReportResultPage() {
     alert('리포트를 공유합니다.');
   };
 
-  const ScoreCard = ({ title, score, icon: Icon }: { title: string; score: number; icon: any }) => (
+  const ScoreCard = ({ title, score, icon: Icon }: { title: string; score: number; icon: React.ComponentType<{ className?: string }> }) => (
     <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-3">

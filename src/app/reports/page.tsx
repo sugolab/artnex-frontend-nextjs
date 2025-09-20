@@ -6,7 +6,7 @@ import { Button, Logo } from '@/components/common';
 import { GNB, Footer } from '@/components/layout';
 import { 
   BarChart3, Eye, TrendingUp, Target, Users, Zap,
-  ChevronRight, Star, Clock, Award, CheckCircle
+  ChevronRight, Star, Clock, CheckCircle
 } from 'lucide-react';
 
 interface ReportType {
@@ -14,7 +14,7 @@ interface ReportType {
   title: string;
   subtitle: string;
   description: string;
-  icon: any;
+  icon: React.ComponentType<{ className?: string }>;
   features: string[];
   estimatedTime: string;
   difficulty: 'beginner' | 'intermediate' | 'advanced';
