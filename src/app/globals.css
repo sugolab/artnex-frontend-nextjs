@@ -1,26 +1,59 @@
+/* Import Google Fonts first */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 @import "tailwindcss";
+
+/* Custom font faces for Futura and Nota (fallback to system fonts) */
+@font-face {
+  font-family: 'Futura Book';
+  src: local('Futura-Book'), local('Futura Book'), local('Arial');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Futura Bold';
+  src: local('Futura-Bold'), local('Futura Bold'), local('Arial Black');
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Futura Demi';
+  src: local('Futura-Demi'), local('Futura Demi'), local('Arial');
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nota Regular';
+  src: local('Nota-Regular'), local('Noto Sans KR');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nota Bold';
+  src: local('Nota-Bold'), local('Noto Sans KR');
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nota Light';
+  src: local('Nota-Light'), local('Noto Sans KR');
+  font-weight: 300;
+  font-display: swap;
+}
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Nota Regular', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.4;
 }
