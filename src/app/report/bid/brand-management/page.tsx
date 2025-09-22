@@ -5,8 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { useRouter } from 'next/navigation';
 import { Plus, X } from 'lucide-react';
-import BidReportLayout from '@/components/layout/BidReportLayout';
-import BidProcessIndicator from '@/components/report/BidProcessIndicator';
+import { GNB, Footer } from '@/components/layout';
 import { useBidReportStore } from '@/store/bid-report';
 
 const brandManagementSchema = z.object({
@@ -27,7 +26,7 @@ type BrandManagementFormData = z.infer<typeof brandManagementSchema>;
 
 export default function BrandManagementPage() {
   const router = useRouter();
-  const { 
+  const {
     brandName,
     productNames,
     priceRangeMin,
@@ -80,7 +79,7 @@ export default function BrandManagementPage() {
       ...data,
       website: data.website || '',
       productNames: filteredProductNames,
-      logo: null, // File upload will be handled separately
+      logo: null,
     });
     nextStep();
     router.push('/report/bid/brand-planning');
@@ -101,203 +100,311 @@ export default function BrandManagementPage() {
   };
 
   return (
-    <BidReportLayout title="02. Brand's Management" currentStep={currentStep}>
-      <BidProcessIndicator currentStep={currentStep} />
-      
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
-        {/* Brand Name */}
-        <div>
-          <label className="block text-lg font-semibold text-gray-900 mb-4">
-            브랜드명
-          </label>
-          <input
-            {...register('brandName')}
-            type="text"
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            placeholder="브랜드명을 입력해주세요"
-          />
-          {errors.brandName && (
-            <p className="mt-2 text-sm text-red-600">{errors.brandName.message}</p>
-          )}
+    <div className="min-h-screen bg-white" style={{ height: '1633px' }}>
+      {/* GNB - 1920×90 */}
+      <GNB />
+
+      {/* Process Indicator - 1560×70 */}
+      <div className="bg-gray-50 border-b">
+        <div className="max-w-[1560px] mx-auto px-4" style={{ height: '70px' }}>
+          <div className="flex items-center justify-center h-full">
+            <div className="flex items-center space-x-8">
+              {[1, 2, 3, 4, 5].map((step) => (
+                <div key={step} className="flex items-center">
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${
+                    step <= currentStep ? 'bg-blue-600 text-white' : 'bg-gray-300 text-gray-600'
+                  }`}>
+                    {step}
+                  </div>
+                  {step < 5 && (
+                    <div className={`w-12 h-0.5 mx-2 ${
+                      step < currentStep ? 'bg-blue-600' : 'bg-gray-300'
+                    }`} />
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Content Area */}
+      <div className="flex max-w-[1920px] mx-auto">
+        {/* LNB - Left Navigation - 360×1453 */}
+        <div className="bg-white border-r" style={{ width: '360px', height: '1453px' }}>
+          <div className="p-6">
+            <h2 className="text-lg font-bold text-gray-900 mb-6">BID Report</h2>
+            <nav className="space-y-2">
+              <div className={`p-3 rounded-md text-sm font-medium ${
+                currentStep === 1 ? 'bg-blue-50 text-blue-700 border-l-4 border-blue-700' : 'text-gray-600 hover:bg-gray-50'
+              }`}>
+                01. Brand Identity
+              </div>
+              <div className={`p-3 rounded-md text-sm font-medium ${
+                currentStep === 2 ? 'bg-blue-50 text-blue-700 border-l-4 border-blue-700' : 'text-gray-600 hover:bg-gray-50'
+              }`}>
+                02. Brand's Management
+              </div>
+              <div className={`p-3 rounded-md text-sm font-medium ${
+                currentStep === 3 ? 'bg-blue-50 text-blue-700 border-l-4 border-blue-700' : 'text-gray-600 hover:bg-gray-50'
+              }`}>
+                03. Brand Planning
+              </div>
+              <div className={`p-3 rounded-md text-sm font-medium ${
+                currentStep === 4 ? 'bg-blue-50 text-blue-700 border-l-4 border-blue-700' : 'text-gray-600 hover:bg-gray-50'
+              }`}>
+                04. Competitor Analysis
+              </div>
+              <div className={`p-3 rounded-md text-sm font-medium ${
+                currentStep === 5 ? 'bg-blue-50 text-blue-700 border-l-4 border-blue-700' : 'text-gray-600 hover:bg-gray-50'
+              }`}>
+                05. Brand Logo
+              </div>
+            </nav>
+          </div>
         </div>
 
-        {/* Product Names */}
-        <div>
-          <label className="block text-lg font-semibold text-gray-900 mb-4">
-            제품명
-          </label>
-          <div className="space-y-3">
-            {fields.map((field, index) => (
-              <div key={field.id} className="flex items-center space-x-3">
+        {/* Frame 290 - Main Content - 1150×1343 */}
+        <div className="bg-white overflow-y-auto" style={{ width: '1150px', height: '1343px' }}>
+          <div className="p-8">
+            <h1 className="text-3xl font-bold text-gray-900 mb-8">02. Brand's Management</h1>
+
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+              {/* Brand Name */}
+              <div>
+                <label className="block text-lg font-semibold text-gray-900 mb-3">
+                  브랜드명
+                </label>
                 <input
-                  {...register(`productNames.${index}.name`)}
+                  {...register('brandName')}
                   type="text"
-                  className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder={`제품명 ${index + 1}`}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  placeholder="브랜드명을 입력해주세요"
                 />
-                {fields.length > 1 && (
-                  <button
-                    type="button"
-                    onClick={() => remove(index)}
-                    className="p-2 text-red-600 hover:bg-red-50 rounded-lg"
-                  >
-                    <X size={20} />
-                  </button>
+                {errors.brandName && (
+                  <p className="mt-2 text-sm text-red-600">{errors.brandName.message}</p>
                 )}
               </div>
-            ))}
-            <button
-              type="button"
-              onClick={() => append({ name: '' })}
-              className="flex items-center space-x-2 text-blue-600 hover:text-blue-700"
-            >
-              <Plus size={20} />
-              <span>제품 추가</span>
-            </button>
-          </div>
-          {errors.productNames && (
-            <p className="mt-2 text-sm text-red-600">{errors.productNames.message}</p>
-          )}
-        </div>
 
-        {/* Price Range */}
-        <div>
-          <label className="block text-lg font-semibold text-gray-900 mb-4">
-            가격대
-          </label>
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm text-gray-600 mb-2">최소 가격 (원)</label>
-              <input
-                {...register('priceRangeMin', { valueAsNumber: true })}
-                type="number"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                placeholder="0"
-              />
-              {errors.priceRangeMin && (
-                <p className="mt-1 text-sm text-red-600">{errors.priceRangeMin.message}</p>
-              )}
-            </div>
-            <div>
-              <label className="block text-sm text-gray-600 mb-2">최대 가격 (원)</label>
-              <input
-                {...register('priceRangeMax', { valueAsNumber: true })}
-                type="number"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                placeholder="0"
-              />
-              {errors.priceRangeMax && (
-                <p className="mt-1 text-sm text-red-600">{errors.priceRangeMax.message}</p>
-              )}
-            </div>
-          </div>
-        </div>
+              {/* Product Names */}
+              <div>
+                <label className="block text-lg font-semibold text-gray-900 mb-3">
+                  제품명
+                </label>
+                <div className="space-y-3">
+                  {fields.map((field, index) => (
+                    <div key={field.id} className="flex items-center space-x-3">
+                      <input
+                        {...register(`productNames.${index}.name`)}
+                        type="text"
+                        className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        placeholder={`제품명 ${index + 1}`}
+                      />
+                      {fields.length > 1 && (
+                        <button
+                          type="button"
+                          onClick={() => remove(index)}
+                          className="p-2 text-red-600 hover:bg-red-50 rounded-lg"
+                        >
+                          <X size={20} />
+                        </button>
+                      )}
+                    </div>
+                  ))}
+                  <button
+                    type="button"
+                    onClick={() => append({ name: '' })}
+                    className="flex items-center space-x-2 text-blue-600 hover:text-blue-700"
+                  >
+                    <Plus size={20} />
+                    <span>제품 추가</span>
+                  </button>
+                </div>
+                {errors.productNames && (
+                  <p className="mt-2 text-sm text-red-600">{errors.productNames.message}</p>
+                )}
+              </div>
 
-        {/* Category */}
-        <div>
-          <label className="block text-lg font-semibold text-gray-900 mb-4">
-            카테고리
-          </label>
-          <select
-            {...register('category')}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-          >
-            <option value="">카테고리를 선택해주세요</option>
-            <option value="tech">기술/전자</option>
-            <option value="fashion">패션/의류</option>
-            <option value="beauty">뷰티/화장품</option>
-            <option value="food">식품/음료</option>
-            <option value="health">건강/의료</option>
-            <option value="education">교육/서비스</option>
-            <option value="lifestyle">라이프스타일</option>
-            <option value="other">기타</option>
-          </select>
-          {errors.category && (
-            <p className="mt-2 text-sm text-red-600">{errors.category.message}</p>
-          )}
-        </div>
+              {/* Price Range */}
+              <div>
+                <label className="block text-lg font-semibold text-gray-900 mb-3">
+                  가격대
+                </label>
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm text-gray-600 mb-2">최소 가격 (원)</label>
+                    <input
+                      {...register('priceRangeMin', { valueAsNumber: true })}
+                      type="number"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      placeholder="0"
+                    />
+                    {errors.priceRangeMin && (
+                      <p className="mt-1 text-sm text-red-600">{errors.priceRangeMin.message}</p>
+                    )}
+                  </div>
+                  <div>
+                    <label className="block text-sm text-gray-600 mb-2">최대 가격 (원)</label>
+                    <input
+                      {...register('priceRangeMax', { valueAsNumber: true })}
+                      type="number"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      placeholder="0"
+                    />
+                    {errors.priceRangeMax && (
+                      <p className="mt-1 text-sm text-red-600">{errors.priceRangeMax.message}</p>
+                    )}
+                  </div>
+                </div>
+              </div>
 
-        {/* Website */}
-        <div>
-          <label className="block text-lg font-semibold text-gray-900 mb-4">
-            웹사이트 (선택사항)
-          </label>
-          <input
-            {...register('website')}
-            type="url"
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            placeholder="https://example.com"
-          />
-          {errors.website && (
-            <p className="mt-2 text-sm text-red-600">{errors.website.message}</p>
-          )}
-        </div>
+              {/* Category */}
+              <div>
+                <label className="block text-lg font-semibold text-gray-900 mb-3">
+                  카테고리
+                </label>
+                <select
+                  {...register('category')}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                >
+                  <option value="">카테고리를 선택해주세요</option>
+                  <option value="tech">기술/전자</option>
+                  <option value="fashion">패션/의류</option>
+                  <option value="beauty">뷰티/화장품</option>
+                  <option value="food">식품/음료</option>
+                  <option value="health">건강/의료</option>
+                  <option value="education">교육/서비스</option>
+                  <option value="lifestyle">라이프스타일</option>
+                  <option value="other">기타</option>
+                </select>
+                {errors.category && (
+                  <p className="mt-2 text-sm text-red-600">{errors.category.message}</p>
+                )}
+              </div>
 
-        {/* Target Gender */}
-        <div>
-          <label className="block text-lg font-semibold text-gray-900 mb-4">
-            타겟 성별
-          </label>
-          <div className="space-y-2">
-            {['male', 'female', 'all'].map((gender) => (
-              <label key={gender} className="flex items-center">
+              {/* Website */}
+              <div>
+                <label className="block text-lg font-semibold text-gray-900 mb-3">
+                  웹사이트 (선택사항)
+                </label>
                 <input
-                  type="checkbox"
-                  checked={watch('targetGender')?.includes(gender) || false}
-                  onChange={(e) => handleCheckboxChange('targetGender', gender, e.target.checked)}
-                  className="mr-3 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                  {...register('website')}
+                  type="url"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  placeholder="https://example.com"
                 />
-                <span className="text-gray-700">
-                  {gender === 'male' ? '남성' : gender === 'female' ? '여성' : '전체'}
-                </span>
-              </label>
-            ))}
+                {errors.website && (
+                  <p className="mt-2 text-sm text-red-600">{errors.website.message}</p>
+                )}
+              </div>
+
+              {/* Target Gender */}
+              <div>
+                <label className="block text-lg font-semibold text-gray-900 mb-3">
+                  타겟 성별
+                </label>
+                <div className="space-y-2">
+                  {['male', 'female', 'all'].map((gender) => (
+                    <label key={gender} className="flex items-center">
+                      <input
+                        type="checkbox"
+                        checked={watch('targetGender')?.includes(gender) || false}
+                        onChange={(e) => handleCheckboxChange('targetGender', gender, e.target.checked)}
+                        className="mr-3 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                      />
+                      <span className="text-gray-700">
+                        {gender === 'male' ? '남성' : gender === 'female' ? '여성' : '전체'}
+                      </span>
+                    </label>
+                  ))}
+                </div>
+                {errors.targetGender && (
+                  <p className="mt-2 text-sm text-red-600">{errors.targetGender.message}</p>
+                )}
+              </div>
+
+              {/* Target Age Range */}
+              <div>
+                <label className="block text-lg font-semibold text-gray-900 mb-3">
+                  타겟 연령대
+                </label>
+                <div className="grid grid-cols-2 gap-2">
+                  {['10s', '20s', '30s', '40s', '50s', '60s+'].map((age) => (
+                    <label key={age} className="flex items-center">
+                      <input
+                        type="checkbox"
+                        checked={watch('targetAgeRange')?.includes(age) || false}
+                        onChange={(e) => handleCheckboxChange('targetAgeRange', age, e.target.checked)}
+                        className="mr-3 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                      />
+                      <span className="text-gray-700">{age}</span>
+                    </label>
+                  ))}
+                </div>
+                {errors.targetAgeRange && (
+                  <p className="mt-2 text-sm text-red-600">{errors.targetAgeRange.message}</p>
+                )}
+              </div>
+
+              {/* Navigation Buttons */}
+              <div className="flex justify-between pt-6 border-t border-gray-200">
+                <button
+                  type="button"
+                  onClick={handlePrevious}
+                  className="px-8 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 font-medium"
+                >
+                  이전
+                </button>
+                <button
+                  type="submit"
+                  className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium"
+                >
+                  다음
+                </button>
+              </div>
+            </form>
           </div>
-          {errors.targetGender && (
-            <p className="mt-2 text-sm text-red-600">{errors.targetGender.message}</p>
-          )}
         </div>
 
-        {/* Target Age Range */}
-        <div>
-          <label className="block text-lg font-semibold text-gray-900 mb-4">
-            타겟 연령대
-          </label>
-          <div className="grid grid-cols-2 gap-2">
-            {['10s', '20s', '30s', '40s', '50s', '60s+'].map((age) => (
-              <label key={age} className="flex items-center">
-                <input
-                  type="checkbox"
-                  checked={watch('targetAgeRange')?.includes(age) || false}
-                  onChange={(e) => handleCheckboxChange('targetAgeRange', age, e.target.checked)}
-                  className="mr-3 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-                />
-                <span className="text-gray-700">{age}</span>
-              </label>
-            ))}
+        {/* Managing Guide - Right Sidebar - 360×1383 */}
+        <div className="bg-gray-50 border-l" style={{ width: '360px', height: '1383px' }}>
+          <div className="p-6">
+            <h3 className="text-lg font-bold text-gray-900 mb-6">관리 가이드</h3>
+            <div className="space-y-6">
+              <div className="bg-white p-4 rounded-lg shadow-sm">
+                <h4 className="font-semibold text-gray-900 mb-2">브랜드 관리 팁</h4>
+                <p className="text-sm text-gray-600">
+                  정확한 브랜드 정보와 타겟 고객 정보를 입력하면 더 정밀한 분석 결과를 얻을 수 있습니다.
+                </p>
+              </div>
+              <div className="bg-white p-4 rounded-lg shadow-sm">
+                <h4 className="font-semibold text-gray-900 mb-2">진행 상황</h4>
+                <div className="w-full bg-gray-200 rounded-full h-2 mb-2">
+                  <div
+                    className="bg-blue-600 h-2 rounded-full transition-all duration-300"
+                    style={{ width: `${(currentStep / 5) * 100}%` }}
+                  />
+                </div>
+                <p className="text-sm text-gray-600">
+                  {currentStep}/5 단계 완료 ({Math.round((currentStep / 5) * 100)}%)
+                </p>
+              </div>
+              <div className="bg-white p-4 rounded-lg shadow-sm">
+                <h4 className="font-semibold text-gray-900 mb-2">입력 체크리스트</h4>
+                <ul className="text-sm text-gray-600 space-y-1">
+                  <li>• 정확한 브랜드명 확인</li>
+                  <li>• 주요 제품 모두 포함</li>
+                  <li>• 실제 판매 가격대 반영</li>
+                  <li>• 타겟 고객 명확히 설정</li>
+                </ul>
+              </div>
+            </div>
           </div>
-          {errors.targetAgeRange && (
-            <p className="mt-2 text-sm text-red-600">{errors.targetAgeRange.message}</p>
-          )}
         </div>
+      </div>
 
-        {/* Navigation Buttons */}
-        <div className="flex justify-between pt-8 border-t border-gray-200">
-          <button
-            type="button"
-            onClick={handlePrevious}
-            className="px-8 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 font-medium"
-          >
-            이전
-          </button>
-          <button
-            type="submit"
-            className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium"
-          >
-            다음
-          </button>
-        </div>
-      </form>
-    </BidReportLayout>
+      {/* Footer - 1920×90 */}
+      <Footer />
+    </div>
   );
 }

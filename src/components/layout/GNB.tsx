@@ -15,7 +15,7 @@ const img3 = "/assets/50cdad30be445d6a928bad413d5ec77ddac51e46.svg";
 const img4 = "/assets/a666ef2b69d0ba93ebbf62de57b3a68b517c0554.svg";
 
 interface GNBProps {
-  variant?: 'black' | 'white' | 'gray' | 'main';
+  variant?: 'black' | 'white' | 'gray' | 'main' | 'standard';
   className?: string;
 }
 
@@ -50,6 +50,89 @@ export default function GNB({ variant = 'black', className = '' }: GNBProps) {
 
   const isLight = variant === 'white' || variant === 'gray' || variant === 'main';
 
+  // Standard Figma design (exact match from Figma plugin)
+  if (variant === 'standard') {
+    return (
+      <div className="bg-white box-border content-stretch flex items-center justify-between p-[20px] relative size-full" data-name="Color=Black, State=Default" data-node-id="17:15386">
+        <div aria-hidden="true" className="absolute border-[#dddddd] border-[0px_0px_1px] border-solid bottom-[-0.5px] left-0 pointer-events-none right-0 top-0" />
+        <div className="content-stretch flex gap-[100px] items-center justify-start relative shrink-0" data-node-id="17:15387">
+          <div className="h-[30px] relative shrink-0 w-[192px]" data-name="Logo" data-node-id="17:15388">
+            <Link href="/" className="absolute bg-center bg-cover bg-no-repeat inset-0" data-name="logo-black-horizontal" data-node-id="I17:15388;17:15381" style={{ backgroundImage: `url('/assets/9d8430ed04a9064834747437e197e1349910a3d8.png')` }} />
+          </div>
+          <div className="content-stretch flex font-['Noto_Sans_KR:Bold',_sans-serif] font-bold gap-[50px] h-[24px] items-center justify-start leading-[0] relative shrink-0 text-[20px] text-black text-nowrap w-[325px]" data-node-id="17:15389">
+            <div className="flex flex-col justify-center relative shrink-0" data-node-id="17:15390">
+              <Link href="/reports" className="[text-decoration-skip-ink:none] [text-underline-position:from-font] decoration-solid leading-[normal] text-nowrap underline whitespace-pre text-black">AI리포트</Link>
+            </div>
+            <div className="flex flex-col justify-center relative shrink-0" data-node-id="17:15391">
+              <Link href="/design" className="leading-[normal] text-nowrap whitespace-pre text-black">AI디자인</Link>
+            </div>
+            <div className="flex flex-col justify-center relative shrink-0" data-node-id="17:15392">
+              <Link href="/reports/marketing" className="leading-[normal] text-nowrap whitespace-pre text-black">AI마케팅</Link>
+            </div>
+          </div>
+        </div>
+        <div className="content-stretch flex gap-[30px] items-center justify-start relative shrink-0" data-node-id="17:15393">
+          <div className="content-stretch flex gap-[20px] items-center justify-start relative shrink-0" data-node-id="17:15394">
+            <Link href="/consulting" className="box-border content-stretch flex gap-[7px] h-[50px] items-center justify-center px-[3px] py-[12px] relative rounded-[100px] shrink-0" data-name="유동적 버튼" data-node-id="17:15395">
+              <div className="flex flex-col font-['Noto_Sans_KR:Medium',_sans-serif] font-medium justify-center leading-[0] relative shrink-0 text-[18px] text-black text-center text-nowrap uppercase" data-node-id="I17:15395;5:2206">
+                <p className="leading-[normal] whitespace-pre">브랜드 컨설팅</p>
+              </div>
+            </Link>
+            <Link href="/service" className="box-border content-stretch flex gap-[7px] h-[50px] items-center justify-center px-[3px] py-[12px] relative rounded-[100px] shrink-0" data-name="유동적 버튼" data-node-id="17:15396">
+              <div className="flex flex-col font-['Noto_Sans_KR:Medium',_sans-serif] font-medium justify-center leading-[0] relative shrink-0 text-[18px] text-black text-center text-nowrap uppercase" data-node-id="I17:15396;5:2206">
+                <p className="leading-[normal] whitespace-pre">서비스 안내</p>
+              </div>
+            </Link>
+          </div>
+          <div className="content-stretch flex gap-[10px] items-center justify-start relative shrink-0" data-node-id="17:15397">
+            <Link href="/mypage" className="bg-white box-border content-stretch flex gap-[7px] h-[50px] items-center justify-center px-[30px] py-[12px] relative rounded-[100px] shrink-0 w-[151px]" data-name="유동적 버튼" data-node-id="17:15398">
+              <div aria-hidden="true" className="absolute border border-[#dddddd] border-solid inset-[-0.5px] pointer-events-none rounded-[100.5px]" />
+              <div className="overflow-clip relative shrink-0 size-[22px]" data-name="Icon" data-node-id="17:15399">
+                <div className="absolute inset-[66.67%_8.33%_4.17%_8.33%]" data-name="Vector" data-node-id="I17:15399;17:15546">
+                  <div className="absolute inset-[-15.58%_-5.45%]" style={{ "--stroke-0": "rgba(0, 0, 0, 1)", "--stroke-1": "rgba(0, 0, 0, 1)" } as React.CSSProperties}>
+                    <img alt="" className="block max-w-none size-full" src="/assets/a12ea6e8aae1fd5abad35ae22e71d666aa659ccf.svg" />
+                  </div>
+                </div>
+                <div className="absolute inset-[4.17%_29.17%_54.17%_29.17%]" data-name="Vector" data-node-id="I17:15399;17:15547">
+                  <div className="absolute inset-[-10.909%]" style={{ "--stroke-0": "rgba(0, 0, 0, 1)", "--stroke-1": "rgba(0, 0, 0, 1)" } as React.CSSProperties}>
+                    <img alt="" className="block max-w-none size-full" src="/assets/9f023209628b971e3832be52bcd248bbd7866065.svg" />
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-col font-['Poppins:Medium',_sans-serif] justify-center leading-[0] not-italic relative shrink-0 text-[18px] text-black text-center text-nowrap uppercase" data-node-id="17:15400">
+                <p className="leading-[normal] whitespace-pre">MY PAGE</p>
+              </div>
+            </Link>
+            <Link href="/login" className="bg-white box-border content-stretch flex gap-[7px] h-[50px] items-center justify-center px-[30px] py-[12px] relative rounded-[100px] shrink-0" data-name="유동적 버튼" data-node-id="17:15401">
+              <div aria-hidden="true" className="absolute border border-[#dddddd] border-solid inset-[-0.5px] pointer-events-none rounded-[100.5px]" />
+              <div className="relative shrink-0 size-[22px]" data-name="Icon" data-node-id="17:15402">
+                <div className="absolute inset-[-0.91%]" style={{ "--fill-0": "rgba(0, 0, 0, 1)", "--fill-1": "rgba(0, 0, 0, 1)", "--stroke-0": "rgba(0, 0, 0, 1)", "--stroke-1": "rgba(0, 0, 0, 1)" } as React.CSSProperties}>
+                  <img alt="" className="block max-w-none size-full" src="/assets/16f4ef752759075174e81196ffe2f03cd06fa560.svg" />
+                </div>
+              </div>
+              <div className="flex flex-col font-['Poppins:Medium',_sans-serif] justify-center leading-[0] not-italic relative shrink-0 text-[18px] text-black text-center text-nowrap uppercase" data-node-id="17:15403">
+                <p className="leading-[normal] whitespace-pre">LOGIN</p>
+              </div>
+            </Link>
+            <Link href="/contact" className="bg-black box-border content-stretch flex gap-[7px] h-[50px] items-center justify-center px-[30px] py-[12px] relative rounded-[100px] shrink-0 w-[189px]" data-name="유동적 버튼" data-node-id="17:15404">
+              <div aria-hidden="true" className="absolute border border-[#dddddd] border-solid inset-[-0.5px] pointer-events-none rounded-[100.5px]" />
+              <div className="overflow-clip relative shrink-0 size-[24px]" data-name="Icon" data-node-id="17:15405">
+                <div className="absolute inset-[12.5%]" data-name="Vector" data-node-id="I17:15405;17:15486">
+                  <div className="absolute inset-[-5.56%]" style={{ "--stroke-0": "rgba(255, 255, 255, 1)" } as React.CSSProperties}>
+                    <img alt="" className="block max-w-none size-full" src="/assets/e67d076f147c7030ea78284c77df940729e5ef6b.svg" />
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-col font-['Poppins:Medium',_sans-serif] justify-center leading-[0] not-italic relative shrink-0 text-[18px] text-center text-nowrap text-white uppercase" data-node-id="17:15406">
+                <p className="leading-[normal] whitespace-pre">contact</p>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   // Main page uses Figma exact design
   if (variant === 'main') {
     return (
@@ -59,36 +142,36 @@ export default function GNB({ variant = 'black', className = '' }: GNBProps) {
       )} data-name="GNB" data-testid="gnb">
         <div aria-hidden="true" className="absolute border-[#dddddd] border-[0px_0px_1px] border-solid bottom-[-0.5px] left-0 pointer-events-none right-0 top-0" />
         <div className="content-stretch flex gap-[100px] items-center justify-start relative shrink-0">
-          <div className="h-[30px] relative shrink-0 w-[192px]" data-name="Logo" data-testid="logo">
+          <Link href="/" className="h-[30px] relative shrink-0 w-[192px]" data-name="Logo" data-testid="logo">
             <img className="absolute w-full h-full object-cover" src={logoImg} alt="Logo" />
-          </div>
+          </Link>
           <div className="content-stretch flex font-['Noto_Sans_KR:Bold',_sans-serif] font-bold gap-[50px] h-[24px] items-center justify-start leading-[0] relative shrink-0 text-[20px] text-nowrap text-white w-[325px]">
             <div className="flex flex-col justify-center relative shrink-0">
-              <a href="/reports" className="leading-[normal] text-nowrap whitespace-pre text-white no-underline">AI리포트</a>
+              <Link href="/reports" className="leading-[normal] text-nowrap whitespace-pre text-white no-underline">AI리포트</Link>
             </div>
             <div className="flex flex-col justify-center relative shrink-0">
-              <a href="/design" className="leading-[normal] text-nowrap whitespace-pre text-white no-underline">AI디자인</a>
+              <Link href="/design" className="leading-[normal] text-nowrap whitespace-pre text-white no-underline">AI디자인</Link>
             </div>
             <div className="flex flex-col justify-center relative shrink-0">
-              <a href="/reports/marketing" className="leading-[normal] text-nowrap whitespace-pre text-white no-underline">AI마케팅</a>
+              <Link href="/reports/marketing" className="leading-[normal] text-nowrap whitespace-pre text-white no-underline">AI마케팅</Link>
             </div>
           </div>
         </div>
         <div className="content-stretch flex gap-[30px] items-center justify-start relative shrink-0">
           <div className="content-stretch flex gap-[20px] items-center justify-start relative shrink-0">
-            <a href="/consulting" className="box-border content-stretch flex gap-[7px] h-[50px] items-center justify-center px-[3px] py-[12px] relative rounded-[100px] shrink-0 no-underline">
+            <Link href="/consulting" className="box-border content-stretch flex gap-[7px] h-[50px] items-center justify-center px-[3px] py-[12px] relative rounded-[100px] shrink-0 no-underline">
               <div className="flex flex-col font-['Noto_Sans_KR:Medium',_sans-serif] font-medium justify-center leading-[0] relative shrink-0 text-[18px] text-center text-nowrap text-white uppercase">
                 <p className="leading-[normal] whitespace-pre">브랜드컨설팅</p>
               </div>
-            </a>
-            <a href="/service" className="box-border content-stretch flex gap-[7px] h-[50px] items-center justify-center px-[3px] py-[12px] relative rounded-[100px] shrink-0 no-underline">
+            </Link>
+            <Link href="/service" className="box-border content-stretch flex gap-[7px] h-[50px] items-center justify-center px-[3px] py-[12px] relative rounded-[100px] shrink-0 no-underline">
               <div className="flex flex-col font-['Noto_Sans_KR:Medium',_sans-serif] font-medium justify-center leading-[0] relative shrink-0 text-[18px] text-center text-nowrap text-white uppercase">
                 <p className="leading-[normal] whitespace-pre">서비스 안내</p>
               </div>
-            </a>
+            </Link>
           </div>
           <div className="content-stretch flex gap-[10px] items-center justify-start relative shrink-0">
-            <a href="/mypage" className="box-border content-stretch flex gap-[7px] h-[50px] items-center justify-center px-[30px] py-[12px] relative rounded-[100px] shrink-0 w-[151px] no-underline">
+            <Link href="/mypage" className="box-border content-stretch flex gap-[7px] h-[50px] items-center justify-center px-[30px] py-[12px] relative rounded-[100px] shrink-0 w-[151px] no-underline">
               <div aria-hidden="true" className="absolute border border-solid border-white inset-[-0.5px] pointer-events-none rounded-[100.5px]" />
               <div className="overflow-clip relative shrink-0 size-[22px]">
                 <div className="absolute inset-[66.67%_8.33%_4.17%_8.33%]">
@@ -103,10 +186,10 @@ export default function GNB({ variant = 'black', className = '' }: GNBProps) {
                 </div>
               </div>
               <div className="flex flex-col font-['Poppins:Medium',_sans-serif] justify-center leading-[0] not-italic relative shrink-0 text-[18px] text-center text-nowrap text-white uppercase">
-                <p className="leading-[normal] whitespace-pre">마이페이지</p>
+                <p className="leading-[normal] whitespace-pre">MY PAGE</p>
               </div>
-            </a>
-            <a href="/login" className="box-border content-stretch flex gap-[7px] h-[50px] items-center justify-center px-[30px] py-[12px] relative rounded-[100px] shrink-0 no-underline">
+            </Link>
+            <Link href="/login" className="box-border content-stretch flex gap-[7px] h-[50px] items-center justify-center px-[30px] py-[12px] relative rounded-[100px] shrink-0 no-underline">
               <div aria-hidden="true" className="absolute border border-solid border-white inset-[-0.5px] pointer-events-none rounded-[100.5px]" />
               <div className="relative shrink-0 size-[22px]">
                 <div className="absolute inset-[-0.91%]" style={{ "--fill-0": "rgba(255, 255, 255, 1)", "--stroke-0": "rgba(255, 255, 255, 1)" } as React.CSSProperties}>
@@ -114,15 +197,15 @@ export default function GNB({ variant = 'black', className = '' }: GNBProps) {
                 </div>
               </div>
               <div className="flex flex-col font-['Poppins:Medium',_sans-serif] justify-center leading-[0] not-italic relative shrink-0 text-[18px] text-center text-nowrap text-white uppercase">
-                <p className="leading-[normal] whitespace-pre">로그인</p>
+                <p className="leading-[normal] whitespace-pre">LOGIN</p>
               </div>
-            </a>
-            <a href="/register" className="bg-gray-200 border border-gray-300 box-border content-stretch flex gap-[7px] h-[50px] items-center justify-center px-[30px] py-[12px] relative rounded-[100px] shrink-0 no-underline">
+            </Link>
+            <Link href="/register" className="bg-gray-200 border border-gray-300 box-border content-stretch flex gap-[7px] h-[50px] items-center justify-center px-[30px] py-[12px] relative rounded-[100px] shrink-0 no-underline">
               <div className="flex flex-col font-['Poppins:Medium',_sans-serif] justify-center leading-[0] not-italic relative shrink-0 text-[#262d33] text-[18px] text-center text-nowrap uppercase">
                 <p className="leading-[normal] whitespace-pre">회원가입</p>
               </div>
-            </a>
-            <a href="/contact" className="bg-white box-border content-stretch flex gap-[7px] h-[50px] items-center justify-center px-[30px] py-[12px] relative rounded-[100px] shrink-0 w-[189px] no-underline">
+            </Link>
+            <Link href="/contact" className="bg-white box-border content-stretch flex gap-[7px] h-[50px] items-center justify-center px-[30px] py-[12px] relative rounded-[100px] shrink-0 w-[189px] no-underline">
               <div aria-hidden="true" className="absolute border border-solid border-white inset-[-0.5px] pointer-events-none rounded-[100.5px]" />
               <div className="overflow-clip relative shrink-0 size-[24px]">
                 <div className="absolute inset-[12.5%]">
@@ -132,9 +215,9 @@ export default function GNB({ variant = 'black', className = '' }: GNBProps) {
                 </div>
               </div>
               <div className="flex flex-col font-['Poppins:Medium',_sans-serif] justify-center leading-[0] not-italic relative shrink-0 text-[#262d33] text-[18px] text-center text-nowrap uppercase">
-                <p className="leading-[normal] whitespace-pre">문의</p>
+                <p className="leading-[normal] whitespace-pre">contact</p>
               </div>
-            </a>
+            </Link>
           </div>
         </div>
       </nav>
