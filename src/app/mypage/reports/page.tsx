@@ -4,10 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button, Logo } from '@/components/common';
 import { GNB, Footer } from '@/components/layout';
-import { 
-  FileText, Clock, Download, Eye, Filter, Search,
-  ChevronRight, Calendar, Star, BarChart3, TrendingUp
-} from 'lucide-react';
+import { FileText, Clock, Download, Eye, Filter, Search, ChevronRight, Calendar, Star, BarChart3, TrendingUp } from 'lucide-react';
 
 interface ReportHistory {
   id: string;

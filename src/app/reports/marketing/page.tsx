@@ -4,11 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/common';
 import { GNB, Footer } from '@/components/layout';
-import { 
-  Download, Share, TrendingUp, Target, Users,
-  BarChart3, Activity, Globe,
-  MessageSquare, Search, Star, ChevronUp, ChevronDown
-} from 'lucide-react';
+import { Download, Share, TrendingUp, Target, Users, BarChart3, Activity, Globe, MessageSquare, Search, Star, ChevronUp, ChevronDown } from 'lucide-react';
 
 interface MarketingReportData {
   brandName: string;

@@ -4,10 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button, Logo } from '@/components/common';
 import { GNB, Footer } from '@/components/layout';
-import { 
-  BarChart3, Eye, TrendingUp, Target, Users, Zap,
-  ChevronRight, Star, Clock, CheckCircle
-} from 'lucide-react';
+import { BarChart3, Eye, TrendingUp, Target, Users, Zap, ChevronRight, Star, Clock, CheckCircle2 } from 'lucide-react';
 
 interface ReportType {
   id: string;
@@ -228,7 +225,7 @@ export default function ReportsLandingPage() {
                   <h4 className="font-noto-bold text-gray-900 text-sm">주요 기능</h4>
                   {report.features.map((feature, index) => (
                     <div key={index} className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                      <CheckCircle2 className="w-4 h-4 text-green-500 flex-shrink-0" />
                       <span className="text-xs font-noto-medium text-gray-600">{feature}</span>
                     </div>
                   ))}

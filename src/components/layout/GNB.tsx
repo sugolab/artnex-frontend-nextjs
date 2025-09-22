@@ -7,8 +7,15 @@ import Logo from '@/components/common/Logo';
 import Button from '@/components/common/Button';
 import LinkText from '@/components/common/LinkText';
 
+// Figma assets for main page
+const logoImg = "/assets/fcb113690bc1e9a5524e50ae05556f9e79e79bd3.png";
+const img1 = "/assets/25182345d9f88d6935136e4fc2a9343096b9fe13.svg";
+const img2 = "/assets/7ad2d80383c539b4be77e5d07d54b6b4ede3d5f5.svg";
+const img3 = "/assets/50cdad30be445d6a928bad413d5ec77ddac51e46.svg";
+const img4 = "/assets/a666ef2b69d0ba93ebbf62de57b3a68b517c0554.svg";
+
 interface GNBProps {
-  variant?: 'black' | 'white' | 'gray';
+  variant?: 'black' | 'white' | 'gray' | 'main';
   className?: string;
 }
 
@@ -22,6 +29,8 @@ export default function GNB({ variant = 'black', className = '' }: GNBProps) {
         return 'bg-white';
       case 'gray':
         return 'bg-black/93 backdrop-blur-sm';
+      case 'main':
+        return 'bg-transparent';
       default:
         return 'bg-white';
     }
@@ -32,13 +41,105 @@ export default function GNB({ variant = 'black', className = '' }: GNBProps) {
     switch (variant) {
       case 'white':
       case 'gray':
+      case 'main':
         return 'text-white';
       default:
         return 'text-black';
     }
   };
 
-  const isLight = variant === 'white' || variant === 'gray';
+  const isLight = variant === 'white' || variant === 'gray' || variant === 'main';
+
+  // Main page uses Figma exact design
+  if (variant === 'main') {
+    return (
+      <nav className={cn(
+        "absolute box-border content-stretch flex items-center justify-between left-0 p-[20px] top-0 w-full z-20",
+        className
+      )} data-name="GNB" data-testid="gnb">
+        <div aria-hidden="true" className="absolute border-[#dddddd] border-[0px_0px_1px] border-solid bottom-[-0.5px] left-0 pointer-events-none right-0 top-0" />
+        <div className="content-stretch flex gap-[100px] items-center justify-start relative shrink-0">
+          <div className="h-[30px] relative shrink-0 w-[192px]" data-name="Logo" data-testid="logo">
+            <img className="absolute w-full h-full object-cover" src={logoImg} alt="Logo" />
+          </div>
+          <div className="content-stretch flex font-['Noto_Sans_KR:Bold',_sans-serif] font-bold gap-[50px] h-[24px] items-center justify-start leading-[0] relative shrink-0 text-[20px] text-nowrap text-white w-[325px]">
+            <div className="flex flex-col justify-center relative shrink-0">
+              <a href="/reports" className="leading-[normal] text-nowrap whitespace-pre text-white no-underline">AI리포트</a>
+            </div>
+            <div className="flex flex-col justify-center relative shrink-0">
+              <a href="/design" className="leading-[normal] text-nowrap whitespace-pre text-white no-underline">AI디자인</a>
+            </div>
+            <div className="flex flex-col justify-center relative shrink-0">
+              <a href="/reports/marketing" className="leading-[normal] text-nowrap whitespace-pre text-white no-underline">AI마케팅</a>
+            </div>
+          </div>
+        </div>
+        <div className="content-stretch flex gap-[30px] items-center justify-start relative shrink-0">
+          <div className="content-stretch flex gap-[20px] items-center justify-start relative shrink-0">
+            <a href="/consulting" className="box-border content-stretch flex gap-[7px] h-[50px] items-center justify-center px-[3px] py-[12px] relative rounded-[100px] shrink-0 no-underline">
+              <div className="flex flex-col font-['Noto_Sans_KR:Medium',_sans-serif] font-medium justify-center leading-[0] relative shrink-0 text-[18px] text-center text-nowrap text-white uppercase">
+                <p className="leading-[normal] whitespace-pre">브랜드컨설팅</p>
+              </div>
+            </a>
+            <a href="/service" className="box-border content-stretch flex gap-[7px] h-[50px] items-center justify-center px-[3px] py-[12px] relative rounded-[100px] shrink-0 no-underline">
+              <div className="flex flex-col font-['Noto_Sans_KR:Medium',_sans-serif] font-medium justify-center leading-[0] relative shrink-0 text-[18px] text-center text-nowrap text-white uppercase">
+                <p className="leading-[normal] whitespace-pre">서비스 안내</p>
+              </div>
+            </a>
+          </div>
+          <div className="content-stretch flex gap-[10px] items-center justify-start relative shrink-0">
+            <a href="/mypage" className="box-border content-stretch flex gap-[7px] h-[50px] items-center justify-center px-[30px] py-[12px] relative rounded-[100px] shrink-0 w-[151px] no-underline">
+              <div aria-hidden="true" className="absolute border border-solid border-white inset-[-0.5px] pointer-events-none rounded-[100.5px]" />
+              <div className="overflow-clip relative shrink-0 size-[22px]">
+                <div className="absolute inset-[66.67%_8.33%_4.17%_8.33%]">
+                  <div className="absolute inset-[-15.58%_-5.45%]" style={{ "--stroke-0": "rgba(255, 255, 255, 1)" } as React.CSSProperties}>
+                    <img alt="" className="block max-w-none size-full" src={img1} />
+                  </div>
+                </div>
+                <div className="absolute inset-[4.17%_29.17%_54.17%_29.17%]">
+                  <div className="absolute inset-[-10.909%]" style={{ "--stroke-0": "rgba(255, 255, 255, 1)" } as React.CSSProperties}>
+                    <img alt="" className="block max-w-none size-full" src={img2} />
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-col font-['Poppins:Medium',_sans-serif] justify-center leading-[0] not-italic relative shrink-0 text-[18px] text-center text-nowrap text-white uppercase">
+                <p className="leading-[normal] whitespace-pre">마이페이지</p>
+              </div>
+            </a>
+            <a href="/login" className="box-border content-stretch flex gap-[7px] h-[50px] items-center justify-center px-[30px] py-[12px] relative rounded-[100px] shrink-0 no-underline">
+              <div aria-hidden="true" className="absolute border border-solid border-white inset-[-0.5px] pointer-events-none rounded-[100.5px]" />
+              <div className="relative shrink-0 size-[22px]">
+                <div className="absolute inset-[-0.91%]" style={{ "--fill-0": "rgba(255, 255, 255, 1)", "--stroke-0": "rgba(255, 255, 255, 1)" } as React.CSSProperties}>
+                  <img alt="" className="block max-w-none size-full" src={img3} />
+                </div>
+              </div>
+              <div className="flex flex-col font-['Poppins:Medium',_sans-serif] justify-center leading-[0] not-italic relative shrink-0 text-[18px] text-center text-nowrap text-white uppercase">
+                <p className="leading-[normal] whitespace-pre">로그인</p>
+              </div>
+            </a>
+            <a href="/register" className="bg-gray-200 border border-gray-300 box-border content-stretch flex gap-[7px] h-[50px] items-center justify-center px-[30px] py-[12px] relative rounded-[100px] shrink-0 no-underline">
+              <div className="flex flex-col font-['Poppins:Medium',_sans-serif] justify-center leading-[0] not-italic relative shrink-0 text-[#262d33] text-[18px] text-center text-nowrap uppercase">
+                <p className="leading-[normal] whitespace-pre">회원가입</p>
+              </div>
+            </a>
+            <a href="/contact" className="bg-white box-border content-stretch flex gap-[7px] h-[50px] items-center justify-center px-[30px] py-[12px] relative rounded-[100px] shrink-0 w-[189px] no-underline">
+              <div aria-hidden="true" className="absolute border border-solid border-white inset-[-0.5px] pointer-events-none rounded-[100.5px]" />
+              <div className="overflow-clip relative shrink-0 size-[24px]">
+                <div className="absolute inset-[12.5%]">
+                  <div className="absolute inset-[-5.56%]" style={{ "--stroke-0": "rgba(38, 45, 51, 1)" } as React.CSSProperties}>
+                    <img alt="" className="block max-w-none size-full" src={img4} />
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-col font-['Poppins:Medium',_sans-serif] justify-center leading-[0] not-italic relative shrink-0 text-[#262d33] text-[18px] text-center text-nowrap uppercase">
+                <p className="leading-[normal] whitespace-pre">문의</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </nav>
+    );
+  }
 
   return (
     <header className={cn(
@@ -60,7 +161,7 @@ export default function GNB({ variant = 'black', className = '' }: GNBProps) {
             
             <nav className="hidden lg:flex items-center gap-[50px] font-noto-bold text-xl">
               <LinkText 
-                href="/report" 
+                href="/reports" 
                 variant="underline" 
                 className={getTextColor()}
               >
@@ -73,7 +174,7 @@ export default function GNB({ variant = 'black', className = '' }: GNBProps) {
                 AI디자인
               </LinkText>
               <LinkText 
-                href="/marketing" 
+                href="/reports/marketing" 
                 className={getTextColor()}
               >
                 AI마케팅
@@ -116,7 +217,7 @@ export default function GNB({ variant = 'black', className = '' }: GNBProps) {
                     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
                     <circle cx="12" cy="7" r="4"/>
                   </svg>
-                  MY PAGE
+                  마이페이지
                 </Button>
               </Link>
               
@@ -134,7 +235,26 @@ export default function GNB({ variant = 'black', className = '' }: GNBProps) {
                     <polyline points="10,17 15,12 10,7"/>
                     <line x1="15" y1="12" x2="3" y2="12"/>
                   </svg>
-                  LOGIN
+                  로그인
+                </Button>
+              </Link>
+              
+              <Link href="/register">
+                <Button 
+                  variant="outlined" 
+                  size="small"
+                  className={cn(
+                    'flex items-center gap-2',
+                    isLight ? 'border-white text-white hover:bg-white/10' : 'border-gray-300 text-black hover:bg-gray-50'
+                  )}
+                >
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                  </svg>
+                  회원가입
                 </Button>
               </Link>
               
@@ -151,7 +271,7 @@ export default function GNB({ variant = 'black', className = '' }: GNBProps) {
                     <path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6z"/>
                     <polyline points="22,6 12,13 2,6"/>
                   </svg>
-                  contact
+                  문의
                 </Button>
               </Link>
             </div>
@@ -174,13 +294,13 @@ export default function GNB({ variant = 'black', className = '' }: GNBProps) {
         {isMenuOpen && (
           <div className="lg:hidden border-t border-gray-200 py-4">
             <nav className="flex flex-col gap-4">
-              <LinkText href="/report" className={cn('font-bold text-xl', getTextColor())}>
+              <LinkText href="/reports" className={cn('font-bold text-xl', getTextColor())}>
                 AI리포트
               </LinkText>
               <LinkText href="/design" className={cn('font-bold text-xl', getTextColor())}>
                 AI디자인
               </LinkText>
-              <LinkText href="/marketing" className={cn('font-bold text-xl', getTextColor())}>
+              <LinkText href="/reports/marketing" className={cn('font-bold text-xl', getTextColor())}>
                 AI마케팅
               </LinkText>
               <LinkText href="/consulting" className={cn('font-medium text-lg', getTextColor())}>
@@ -188,6 +308,18 @@ export default function GNB({ variant = 'black', className = '' }: GNBProps) {
               </LinkText>
               <LinkText href="/service" className={cn('font-medium text-lg', getTextColor())}>
                 서비스 안내
+              </LinkText>
+              <LinkText href="/mypage" className={cn('font-medium text-lg', getTextColor())}>
+                마이페이지
+              </LinkText>
+              <LinkText href="/login" className={cn('font-medium text-lg', getTextColor())}>
+                로그인
+              </LinkText>
+              <LinkText href="/register" className={cn('font-medium text-lg', getTextColor())}>
+                회원가입
+              </LinkText>
+              <LinkText href="/contact" className={cn('font-medium text-lg', getTextColor())}>
+                문의
               </LinkText>
             </nav>
           </div>

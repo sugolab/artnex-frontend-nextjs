@@ -3,10 +3,7 @@
 import { useState } from 'react';
 import { GNB, Footer } from '@/components/layout';
 import { Button, TextBox } from '@/components/common';
-import { 
-  Send, Phone, Mail, MapPin, Clock, 
-  CheckCircle, ChevronDown 
-} from 'lucide-react';
+import { Send, Phone, Mail, MapPin, Clock, CheckCircle2, ChevronDown } from 'lucide-react';
 
 interface FormData {
   consultingField: string;
@@ -90,7 +87,7 @@ export default function ContactPage() {
           <div className="max-w-4xl mx-auto px-6 text-center">
             <div className="bg-white rounded-lg shadow-sm p-12">
               <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <CheckCircle className="w-10 h-10 text-green-600" />
+                <CheckCircle2 className="w-10 h-10 text-green-600" />
               </div>
               
               <h1 className="text-3xl font-noto-bold text-gray-900 mb-4">
@@ -316,7 +313,7 @@ export default function ContactPage() {
                   }}
                 >
                   {formData.agreeToTerms && (
-                    <CheckCircle className="w-4 h-4 text-white" />
+                    <CheckCircle2 className="w-4 h-4 text-white" />
                   )}
                 </button>
                 <label className="font-noto-medium text-sm text-gray-700 cursor-pointer">

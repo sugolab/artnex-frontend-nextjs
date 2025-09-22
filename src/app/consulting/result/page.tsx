@@ -4,11 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/common';
 import { GNB, Footer } from '@/components/layout';
-import { 
-  Download, Share, BarChart3, Target, TrendingUp, 
-  CheckCircle, Lightbulb, ChevronRight,
-  Star, Award, Zap, Globe
-} from 'lucide-react';
+import { Download, Share, BarChart3, Target, TrendingUp, CheckCircle2, Lightbulb, ChevronRight, Star, Award, Zap, Globe } from 'lucide-react';
 
 interface ConsultingReportData {
   companyName: string;
@@ -406,7 +402,7 @@ export default function ConsultingResultPage() {
                   <ul className="space-y-1">
                     {reportData.brandPositioning.differentiators.map((diff, index) => (
                       <li key={index} className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                        <CheckCircle2 className="w-4 h-4 text-green-500 flex-shrink-0" />
                         <span className="text-sm text-gray-600 font-noto-medium">{diff}</span>
                       </li>
                     ))}
@@ -449,7 +445,7 @@ export default function ConsultingResultPage() {
                     <ul className="space-y-1">
                       {phase.milestones.map((milestone, idx) => (
                         <li key={idx} className="flex items-center gap-2">
-                          <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                          <CheckCircle2 className="w-4 h-4 text-green-500 flex-shrink-0" />
                           <span className="text-sm text-gray-600 font-noto-medium">{milestone}</span>
                         </li>
                       ))}

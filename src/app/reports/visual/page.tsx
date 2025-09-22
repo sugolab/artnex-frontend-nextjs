@@ -4,11 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/common';
 import { GNB, Footer } from '@/components/layout';
-import { 
-  Download, Share, Palette, Type, Image as ImageIcon,
-  TrendingUp, Award, CheckCircle,
-  Zap, Grid, Camera
-} from 'lucide-react';
+import { Download, Share, Palette, Type, Image, TrendingUp, Award, CheckCircle2, Zap, Grid, Camera } from 'lucide-react';
 
 interface VisualReportData {
   brandName: string;

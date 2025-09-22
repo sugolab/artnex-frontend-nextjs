@@ -3,10 +3,7 @@
 import { useState } from 'react';
 import { Button, TextBox } from '@/components/common';
 import { GNB, Footer } from '@/components/layout';
-import { 
-  User, Bell, Shield, Database, Download, Eye, EyeOff,
-  AlertTriangle
-} from 'lucide-react';
+import { User, Bell, Shield, Database, Download, Eye, EyeOff, AlertTriangle } from 'lucide-react';
 
 interface NotificationSettings {
   emailNotifications: boolean;

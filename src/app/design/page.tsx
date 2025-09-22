@@ -4,11 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button, Logo } from '@/components/common';
 import { GNB, Footer } from '@/components/layout';
-import { 
-  Palette, Wand2, Sparkles, Zap, Eye, Download, 
-  ChevronRight, Star, Clock, Users,
-  Layers, Grid, Image as ImageIcon
-} from 'lucide-react';
+import { Palette, Wand2, Sparkles, Zap, Eye, Download, ChevronRight, Star, Clock, Users, Layers, Grid, Image } from 'lucide-react';
 
 interface DesignTool {
   id: string;
@@ -92,7 +88,7 @@ export default function AIDesignPage() {
       title: 'AI 이미지 생성',
       subtitle: 'Image Generation',
       description: '텍스트 설명만으로 브랜드에 맞는 고품질 이미지와 일러스트를 생성합니다.',
-      icon: ImageIcon,
+      icon: Image,
       features: [
         '텍스트-이미지 변환',
         '브랜드 톤앤매너 반영',

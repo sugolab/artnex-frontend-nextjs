@@ -1,0 +1,240 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - contentinfo [ref=e3]:
+      - generic [ref=e6]:
+        - paragraph [ref=e8]: T. 02-6417-3714
+        - paragraph [ref=e10]: "|"
+        - paragraph [ref=e12]: F. 070-4024-0271
+        - paragraph [ref=e14]: "|"
+        - paragraph [ref=e16]: E. edu@sugolab.kr
+    - navigation [ref=e21]:
+      - generic [ref=e22]:
+        - img "Logo" [ref=e24]
+        - generic [ref=e25]:
+          - link "AI리포트" [ref=e27] [cursor=pointer]:
+            - /url: /reports
+          - link "AI디자인" [ref=e29] [cursor=pointer]:
+            - /url: /design
+          - link "AI마케팅" [ref=e31] [cursor=pointer]:
+            - /url: /reports/marketing
+      - generic [ref=e32]:
+        - generic [ref=e33]:
+          - link "브랜드컨설팅" [ref=e34] [cursor=pointer]:
+            - /url: /consulting
+            - paragraph [ref=e36] [cursor=pointer]: 브랜드컨설팅
+          - link "서비스 안내" [ref=e37] [cursor=pointer]:
+            - /url: /service
+            - paragraph [ref=e39] [cursor=pointer]: 서비스 안내
+        - generic [ref=e40]:
+          - link "마이페이지" [ref=e41] [cursor=pointer]:
+            - /url: /mypage
+            - paragraph [ref=e48] [cursor=pointer]: 마이페이지
+          - link "로그인" [ref=e49] [cursor=pointer]:
+            - /url: /login
+            - paragraph [ref=e53] [cursor=pointer]: 로그인
+          - link "회원가입" [ref=e54] [cursor=pointer]:
+            - /url: /register
+            - paragraph [ref=e56] [cursor=pointer]: 회원가입
+          - link "문의" [ref=e57] [cursor=pointer]:
+            - /url: /contact
+            - paragraph [ref=e62] [cursor=pointer]: 문의
+    - paragraph [ref=e64]: Build your brand's world.
+    - generic [ref=e65]:
+      - paragraph [ref=e66]: 아트넥스는 AI 기반 데이터 분석과
+      - paragraph [ref=e67]: 전략적 브랜딩의 결합을 통해 기업의 성공을 위한
+      - paragraph [ref=e68]: 최적화된 브랜딩 솔루션을 제공합니다.
+  - generic [active]:
+    - generic [ref=e71]:
+      - generic [ref=e72]:
+        - generic [ref=e73]:
+          - navigation [ref=e74]:
+            - button "previous" [disabled] [ref=e75]:
+              - img "previous" [ref=e76]
+            - generic [ref=e78]:
+              - generic [ref=e79]: 1/
+              - generic [ref=e80]: "1"
+            - button "next" [disabled] [ref=e81]:
+              - img "next" [ref=e82]
+          - img
+        - generic [ref=e84]:
+          - generic [ref=e85]:
+            - img [ref=e86]
+            - generic "Latest available version is detected (15.5.3)." [ref=e88]: Next.js 15.5.3
+            - generic [ref=e89]: Turbopack
+          - img
+      - dialog "Build Error" [ref=e91]:
+        - generic [ref=e94]:
+          - generic [ref=e95]:
+            - generic [ref=e96]:
+              - generic [ref=e98]: Build Error
+              - generic [ref=e99]:
+                - button "Copy Error Info" [ref=e100] [cursor=pointer]:
+                  - img [ref=e101] [cursor=pointer]
+                - link "Go to related documentation" [ref=e103] [cursor=pointer]:
+                  - /url: https://nextjs.org/docs/messages/module-not-found
+                  - img [ref=e104] [cursor=pointer]
+                - link "Learn more about enabling Node.js inspector for server code with Chrome DevTools" [ref=e106] [cursor=pointer]:
+                  - /url: https://nextjs.org/docs/app/building-your-application/configuring/debugging#server-side-code
+                  - img [ref=e107] [cursor=pointer]
+            - paragraph [ref=e116]: "Module not found: Can't resolve 'lucide-react/dist/esm/icons/ChevronRight'"
+          - generic [ref=e118]:
+            - generic [ref=e120]:
+              - img [ref=e122]
+              - generic [ref=e125]: ./src/app/consulting/page.tsx (7:1)
+              - button "Open in editor" [ref=e126] [cursor=pointer]:
+                - img [ref=e128] [cursor=pointer]
+            - generic [ref=e131]:
+              - generic [ref=e132]: "Module not found: Can't resolve 'lucide-react/dist/esm/icons/ChevronRight'"
+              - generic [ref=e134]: 5 |
+              - generic [ref=e136]: import
+              - generic [ref=e137]: "{"
+              - generic [ref=e138]: Button
+              - generic [ref=e139]: ","
+              - generic [ref=e141]: Logo
+              - generic [ref=e142]: "}"
+              - generic [ref=e143]: from
+              - generic [ref=e145]: "'@/components/common'"
+              - generic [ref=e146]: ;
+              - generic [ref=e148]: 6 |
+              - generic [ref=e150]: import
+              - generic [ref=e151]: "{"
+              - generic [ref=e152]: GNB
+              - generic [ref=e153]: ","
+              - generic [ref=e155]: Footer
+              - generic [ref=e156]: "}"
+              - generic [ref=e157]: from
+              - generic [ref=e159]: "'@/components/layout'"
+              - generic [ref=e160]: ;
+              - generic [ref=e161]: ">"
+              - generic [ref=e162]: 7 |
+              - generic [ref=e164]: import
+              - generic [ref=e165]: "{"
+              - generic [ref=e166]: ChevronRight
+              - generic [ref=e167]: ","
+              - generic [ref=e169]: Lightbulb
+              - generic [ref=e170]: ","
+              - generic [ref=e172]: Target
+              - generic [ref=e173]: ","
+              - generic [ref=e175]: TrendingUp
+              - generic [ref=e176]: ","
+              - generic [ref=e178]: Users
+              - generic [ref=e179]: "}"
+              - generic [ref=e180]: from
+              - generic [ref=e182]: "'lucide-react'"
+              - generic [ref=e183]: ;
+              - generic [ref=e185]: "|"
+              - generic [ref=e187]: ^
+              - generic [ref=e188]: ^
+              - generic [ref=e189]: ^
+              - generic [ref=e190]: ^
+              - generic [ref=e191]: ^
+              - generic [ref=e192]: ^
+              - generic [ref=e193]: ^
+              - generic [ref=e194]: ^
+              - generic [ref=e195]: ^
+              - generic [ref=e196]: ^
+              - generic [ref=e197]: ^
+              - generic [ref=e198]: ^
+              - generic [ref=e199]: ^
+              - generic [ref=e200]: ^
+              - generic [ref=e201]: ^
+              - generic [ref=e202]: ^
+              - generic [ref=e203]: ^
+              - generic [ref=e204]: ^
+              - generic [ref=e205]: ^
+              - generic [ref=e206]: ^
+              - generic [ref=e207]: ^
+              - generic [ref=e208]: ^
+              - generic [ref=e209]: ^
+              - generic [ref=e210]: ^
+              - generic [ref=e211]: ^
+              - generic [ref=e212]: ^
+              - generic [ref=e213]: ^
+              - generic [ref=e214]: ^
+              - generic [ref=e215]: ^
+              - generic [ref=e216]: ^
+              - generic [ref=e217]: ^
+              - generic [ref=e218]: ^
+              - generic [ref=e219]: ^
+              - generic [ref=e220]: ^
+              - generic [ref=e221]: ^
+              - generic [ref=e222]: ^
+              - generic [ref=e223]: ^
+              - generic [ref=e224]: ^
+              - generic [ref=e225]: ^
+              - generic [ref=e226]: ^
+              - generic [ref=e227]: ^
+              - generic [ref=e228]: ^
+              - generic [ref=e229]: ^
+              - generic [ref=e230]: ^
+              - generic [ref=e231]: ^
+              - generic [ref=e232]: ^
+              - generic [ref=e233]: ^
+              - generic [ref=e234]: ^
+              - generic [ref=e235]: ^
+              - generic [ref=e236]: ^
+              - generic [ref=e237]: ^
+              - generic [ref=e238]: ^
+              - generic [ref=e239]: ^
+              - generic [ref=e240]: ^
+              - generic [ref=e241]: ^
+              - generic [ref=e242]: ^
+              - generic [ref=e243]: ^
+              - generic [ref=e244]: ^
+              - generic [ref=e245]: ^
+              - generic [ref=e246]: ^
+              - generic [ref=e247]: ^
+              - generic [ref=e248]: ^
+              - generic [ref=e249]: ^
+              - generic [ref=e250]: ^
+              - generic [ref=e251]: ^
+              - generic [ref=e252]: ^
+              - generic [ref=e253]: ^
+              - generic [ref=e254]: ^
+              - generic [ref=e255]: ^
+              - generic [ref=e256]: ^
+              - generic [ref=e257]: ^
+              - generic [ref=e258]: ^
+              - generic [ref=e259]: ^
+              - generic [ref=e260]: ^
+              - generic [ref=e261]: ^
+              - generic [ref=e262]: ^
+              - generic [ref=e263]: ^
+              - generic [ref=e264]: ^
+              - generic [ref=e265]: ^
+              - generic [ref=e266]: ^
+              - generic [ref=e267]: ^
+              - generic [ref=e268]: ^
+              - generic [ref=e270]: 8 |
+              - generic [ref=e272]: 9 |
+              - generic [ref=e274]: export
+              - generic [ref=e276]: default
+              - generic [ref=e278]: function
+              - generic [ref=e280]: BrandConsultingStartPage
+              - generic [ref=e281]: "() {"
+              - generic [ref=e282]: 10 |
+              - generic [ref=e284]: const
+              - generic [ref=e285]: router
+              - generic [ref=e286]: =
+              - generic [ref=e287]: useRouter()
+              - generic [ref=e288]: ;
+              - generic [ref=e289]:
+                - text: "Import traces: Client Component Browser: ./src/app/consulting/page.tsx [Client Component Browser] ./src/app/consulting/page.tsx [Server Component] Client Component SSR: ./src/app/consulting/page.tsx [Client Component SSR] ./src/app/consulting/page.tsx [Server Component]"
+                - link "https://nextjs.org/docs/messages/module-not-found" [ref=e290] [cursor=pointer]:
+                  - /url: https://nextjs.org/docs/messages/module-not-found
+        - generic [ref=e291]:
+          - generic [ref=e292]: "1"
+          - generic [ref=e293]: "2"
+    - generic [ref=e298] [cursor=pointer]:
+      - button "Open Next.js Dev Tools" [ref=e299] [cursor=pointer]:
+        - img [ref=e300] [cursor=pointer]
+      - button "Open issues overlay" [ref=e304] [cursor=pointer]:
+        - generic [ref=e305] [cursor=pointer]:
+          - generic [ref=e306] [cursor=pointer]: "0"
+          - generic [ref=e307] [cursor=pointer]: "1"
+        - generic [ref=e308] [cursor=pointer]: Issue
+  - alert [ref=e309]
+```

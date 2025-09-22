@@ -4,11 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button, Logo } from '@/components/common';
 import { GNB, Footer } from '@/components/layout';
-import { 
-  BarChart3, TrendingUp, Target, Users, Clock, Award,
-  Calendar, ArrowUp, ArrowDown, PieChart, Activity,
-  Zap, Star, FileText, Eye, Download
-} from 'lucide-react';
+import { BarChart3, TrendingUp, Target, Users, Clock, Award, Calendar, ArrowUp, ArrowDown, PieChart, Activity, Zap, Star, FileText, Eye, Download } from 'lucide-react';
 
 interface AnalyticsData {
   period: string;
