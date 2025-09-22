@@ -92,7 +92,7 @@ export default function BrandIdentityPage() {
               <div className={`p-3 rounded-md text-sm font-medium ${
                 currentStep === 2 ? 'bg-blue-50 text-blue-700 border-l-4 border-blue-700' : 'text-gray-600 hover:bg-gray-50'
               }`}>
-                02. Brand's Management
+                02. Brand&apos;s Management
               </div>
               <div className={`p-3 rounded-md text-sm font-medium ${
                 currentStep === 3 ? 'bg-blue-50 text-blue-700 border-l-4 border-blue-700' : 'text-gray-600 hover:bg-gray-50'

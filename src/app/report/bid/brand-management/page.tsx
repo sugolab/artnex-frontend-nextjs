@@ -143,7 +143,7 @@ export default function BrandManagementPage() {
               <div className={`p-3 rounded-md text-sm font-medium ${
                 currentStep === 2 ? 'bg-blue-50 text-blue-700 border-l-4 border-blue-700' : 'text-gray-600 hover:bg-gray-50'
               }`}>
-                02. Brand's Management
+                02. Brand&apos;s Management
               </div>
               <div className={`p-3 rounded-md text-sm font-medium ${
                 currentStep === 3 ? 'bg-blue-50 text-blue-700 border-l-4 border-blue-700' : 'text-gray-600 hover:bg-gray-50'
@@ -167,7 +167,7 @@ export default function BrandManagementPage() {
         {/* Frame 290 - Main Content - 1150×1343 */}
         <div className="bg-white overflow-y-auto" style={{ width: '1150px', height: '1343px' }}>
           <div className="p-8">
-            <h1 className="text-3xl font-bold text-gray-900 mb-8">02. Brand's Management</h1>
+            <h1 className="text-3xl font-bold text-gray-900 mb-8">02. Brand&apos;s Management</h1>
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               {/* Brand Name */}

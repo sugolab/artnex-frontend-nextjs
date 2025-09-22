@@ -63,7 +63,7 @@ export default function ReportsLandingPage() {
           {/* Main Title */}
           <div className="text-center mb-16">
             <h1 className="text-5xl font-bold text-black mb-4">
-              create our brand's ABO
+              create our brand&apos;s ABO
             </h1>
             <p className="text-lg text-gray-600">
               우리 브랜드만의 언어와 원칙,색인과<br />
