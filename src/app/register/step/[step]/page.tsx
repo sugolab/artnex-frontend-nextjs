@@ -261,8 +261,7 @@ export default function RegisterStepPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* GNB */}
+    <div className="min-h-screen bg-white flex flex-col">
       <GNB />
 
       {/* Progress Bar */}
@@ -273,8 +272,9 @@ export default function RegisterStepPage() {
         />
       </div>
 
-      {/* Main Content */}
-      <div className="flex justify-center px-5 pb-20">
+      <div className="flex-1">
+        {/* Main Content */}
+        <div className="flex justify-center px-5 pb-20">
         <div className="w-full max-w-md">
           {/* Logo */}
           <div className="flex justify-center mb-12">
@@ -303,9 +303,9 @@ export default function RegisterStepPage() {
             </Button>
           </div>
         </div>
+        </div>
       </div>
 
-      {/* Footer */}
       <Footer />
     </div>
   );

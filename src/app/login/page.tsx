@@ -62,12 +62,12 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white flex flex-col">
       {/* GNB */}
       <GNB />
 
       {/* Main Content */}
-      <div className="flex items-center justify-center min-h-[calc(100vh-180px)] px-5">
+      <div className="flex-1 flex items-center justify-center px-5">
         <div className="flex flex-col items-center">
           {/* Logo */}
           <div className="mb-[50px]">
@@ -150,7 +150,7 @@ export default function LoginPage() {
             <Button
               variant="secondary"
               onClick={handleKakaoLogin}
-              className="bg-[#FEE500] border-[#FEE500] text-black hover:bg-[#FDD835] flex items-center justify-center gap-3"
+              className="bg-active-noti border-active-noti text-black hover:bg-active-noti/90 flex items-center justify-center gap-3"
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 3C7.03 3 3 6.44 3 10.61c0 2.68 1.74 5.01 4.38 6.32l-.82 3.01c-.06.22.04.45.22.57.08.05.17.07.26.07.12 0 .23-.04.32-.12L10.4 17.5c.52.08 1.06.11 1.6.11 4.97 0 9-3.44 9-7.61S16.97 3 12 3"/>

@@ -24,14 +24,10 @@ export default function BrandManagementPage() {
   };
 
   return (
-    <div className="bg-neutral-100 min-h-screen" data-name="AI리포트 > BID Report > Brand's Management" data-node-id="2:3483">
-      {/* GNB - 1920×90 */}
-      <div style={{ height: '90px' }}>
-        <GNB variant="standard" />
-      </div>
-
-      {/* Main Content Container */}
-      <div className="relative">
+    <div className="min-h-screen bg-neutral-100 flex flex-col" data-name="AI리포트 > BID Report > Brand's Management" data-node-id="2:3483">
+      <GNB variant="standard" />
+      
+      <div className="flex-1 relative">
 
       {/* Gray background section - LNB area */}
       <div className="absolute bg-neutral-100 h-[42px] left-[15px] rounded-[5px] top-[85px] w-[331px]" />
@@ -456,7 +452,6 @@ export default function BrandManagementPage() {
 
       </div>
 
-      {/* Footer - 1920×90 */}
       <Footer />
     </div>
   );

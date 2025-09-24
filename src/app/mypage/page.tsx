@@ -112,8 +112,7 @@ export default function MyPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* GNB */}
+    <div className="min-h-screen bg-gray-50 flex flex-col">
       <GNB />
 
       {/* Header Section */}
@@ -179,8 +178,9 @@ export default function MyPage() {
         </div>
       </section>
 
-      {/* Content Area */}
-      <section className="py-8">
+      <div className="flex-1">
+        {/* Content Area */}
+        <section className="py-8">
         <div className="max-w-7xl mx-auto px-6">
           {/* Profile Tab */}
           {activeTab === 'profile' && (
@@ -252,9 +252,10 @@ export default function MyPage() {
           )}
 
         </div>
-      </section>
+        </section>
+        </div>
+      </div>
 
-      {/* Footer */}
       <Footer />
     </div>
   );

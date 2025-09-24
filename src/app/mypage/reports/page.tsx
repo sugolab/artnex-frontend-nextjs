@@ -154,8 +154,7 @@ export default function MyPageReports() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* GNB */}
+    <div className="min-h-screen bg-gray-50 flex flex-col">
       <GNB />
 
       {/* Header Section */}
@@ -257,8 +256,9 @@ export default function MyPageReports() {
         </div>
       </section>
 
-      {/* Reports List */}
-      <section className="py-8">
+      <div className="flex-1">
+        {/* Reports List */}
+        <section className="py-8">
         <div className="max-w-7xl mx-auto px-6">
           <div className="space-y-4">
             {filteredReports.map((report) => (
@@ -345,9 +345,10 @@ export default function MyPageReports() {
             </div>
           )}
         </div>
-      </section>
+        </section>
+        </div>
+      </div>
 
-      {/* Footer */}
       <Footer />
     </div>
   );

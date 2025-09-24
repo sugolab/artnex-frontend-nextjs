@@ -33,12 +33,10 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* GNB */}
+    <div className="min-h-screen bg-white flex flex-col">
       <GNB />
 
-      {/* Main Content - 피그마 기준 1920×899 Frame 385 */}
-      <div className="flex items-center justify-center min-h-[calc(100vh-180px)] px-5">
+      <div className="flex-1 flex items-center justify-center px-5">
         <div className="flex flex-col items-center text-center">
           {/* Logo */}
           <div className="mb-12">
@@ -108,7 +106,6 @@ export default function RegisterPage() {
         </div>
       </div>
 
-      {/* Footer */}
       <Footer />
     </div>
   );

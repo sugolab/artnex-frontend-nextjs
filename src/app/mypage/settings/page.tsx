@@ -103,23 +103,23 @@ export default function MyPageSettings() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* GNB */}
+    <div className="min-h-screen bg-gray-50 flex flex-col">
       <GNB />
 
-      {/* Header Section */}
-      <section className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-6 py-8">
-          <h1 className="text-2xl font-noto-bold text-gray-900 mb-2">
-            계정 설정
-          </h1>
-          <p className="text-gray-600 font-noto-medium">
-            프로필, 보안, 알림 및 개인정보 설정을 관리하세요
-          </p>
-        </div>
-      </section>
+      <div className="flex-1">
+        {/* Header Section */}
+        <section className="bg-white border-b border-gray-200">
+          <div className="max-w-7xl mx-auto px-6 py-8">
+            <h1 className="text-2xl font-noto-bold text-gray-900 mb-2">
+              계정 설정
+            </h1>
+            <p className="text-gray-600 font-noto-medium">
+              프로필, 보안, 알림 및 개인정보 설정을 관리하세요
+            </p>
+          </div>
+        </section>
 
-      <div className="max-w-7xl mx-auto px-6 py-8">
+        <div className="max-w-7xl mx-auto px-6 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Sidebar Navigation */}
           <div className="lg:col-span-1">
@@ -451,9 +451,9 @@ export default function MyPageSettings() {
             </div>
           </div>
         </div>
+        </div>
       </div>
 
-      {/* Footer */}
       <Footer />
     </div>
   );

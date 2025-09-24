@@ -133,8 +133,7 @@ export default function ReportResultPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* GNB */}
+    <div className="min-h-screen bg-gray-50 flex flex-col">
       <GNB />
 
       {/* Header */}
@@ -170,8 +169,9 @@ export default function ReportResultPage() {
         </div>
       </div>
 
-      {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-6 py-8">
+      <div className="flex-1">
+        {/* Main Content */}
+        <div className="max-w-7xl mx-auto px-6 py-8">
         {/* Overall Score */}
         <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-8 rounded-lg mb-8">
           <div className="text-center">
@@ -295,9 +295,9 @@ export default function ReportResultPage() {
             </div>
           </div>
         </div>
+        </div>
       </div>
 
-      {/* Footer */}
       <Footer />
     </div>
   );

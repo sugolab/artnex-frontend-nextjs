@@ -152,12 +152,10 @@ export default function FindEmailPage() {
   );
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* GNB - 1920×90 */}
+    <div className="min-h-screen bg-white flex flex-col">
       <GNB />
 
-      {/* Main Content */}
-      <div className="flex items-center justify-center min-h-[calc(100vh-180px)] px-5">
+      <div className="flex-1 flex items-center justify-center px-5">
         <div className="flex flex-col items-center text-center">
           {/* Logo */}
           <div className="mb-12">
@@ -169,7 +167,6 @@ export default function FindEmailPage() {
         </div>
       </div>
 
-      {/* Footer - 1920×90 */}
       <Footer />
     </div>
   );

@@ -61,12 +61,12 @@ export default function AILoadingPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* GNB - 1920×90 */}
+    <div className="min-h-screen bg-white flex flex-col">
       <GNB />
 
-      {/* Main Content - Frame 385 (1920×990) */}
-      <main className="relative w-full h-[990px] flex items-center justify-center bg-gradient-to-br from-neutral-50 to-neutral-100">
+      <div className="flex-1">
+        {/* Main Content - Frame 385 (1920×990) */}
+        <main className="relative w-full h-full flex items-center justify-center bg-gradient-to-br from-neutral-50 to-neutral-100">
         
         {/* Loading Content - Frame 380 (440×181) */}
         <div className="w-[440px] h-[181px] flex flex-col items-center justify-center">
@@ -124,9 +124,10 @@ export default function AILoadingPage() {
         <div className="absolute inset-0 opacity-5 pointer-events-none">
           <div className="w-full h-full bg-gradient-to-br from-neutral-400 via-neutral-600 to-neutral-800" />
         </div>
-      </main>
+        </main>
+        </div>
+      </div>
 
-      {/* Footer - 1920×90 */}
       <Footer />
     </div>
   );

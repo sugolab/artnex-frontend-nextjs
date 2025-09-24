@@ -431,8 +431,7 @@ export default function ConsultingStepPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* GNB */}
+    <div className="min-h-screen bg-white flex flex-col">
       <GNB />
 
       {/* Progress Bar */}
@@ -453,8 +452,9 @@ export default function ConsultingStepPage() {
         </div>
       </div>
 
-      {/* Main Content */}
-      <div className="max-w-4xl mx-auto px-5 py-12">
+      <div className="flex-1">
+        {/* Main Content */}
+        <div className="max-w-4xl mx-auto px-5 py-12">
         <div className="max-w-2xl mx-auto">
           {/* Logo */}
           <div className="flex justify-center mb-12">
@@ -485,9 +485,9 @@ export default function ConsultingStepPage() {
             </Button>
           </div>
         </div>
+        </div>
       </div>
 
-      {/* Footer */}
       <Footer />
     </div>
   );

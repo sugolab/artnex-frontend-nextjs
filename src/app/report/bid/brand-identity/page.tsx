@@ -60,11 +60,8 @@ export default function BrandIdentityPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white" style={{ width: '1920px', height: '1633px', margin: '0 auto' }}>
-      {/* GNB - 1920×90 */}
-      <div style={{ height: '90px' }}>
-        <GNB variant="standard" />
-      </div>
+    <div className="min-h-screen bg-white flex flex-col" style={{ width: '1920px', margin: '0 auto' }}>
+      <GNB variant="standard" />
 
       {/* Breadcrumb - 1920×70 */}
       <div className="bg-gray-50 border-b" style={{ height: '70px' }}>
@@ -86,7 +83,7 @@ export default function BrandIdentityPage() {
       </div>
 
       {/* Main Content Area */}
-      <div className="flex" style={{ height: '1473px' }}>
+      <div className="flex-1 flex" style={{ minHeight: '1473px' }}>
         {/* Left Sidebar - 384×1473 (w-96) */}
         <div className="w-96 h-[1473px] inline-flex flex-col justify-start items-start">
           <div className="self-stretch h-16 px-5 py-5 bg-white border-t border-b border-neutral-200 inline-flex justify-start items-center gap-2.5">
@@ -327,7 +324,6 @@ export default function BrandIdentityPage() {
         </div>
       </div>
 
-      {/* Footer - 1920×90 */}
       <Footer />
     </div>
   );

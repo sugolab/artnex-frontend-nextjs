@@ -128,12 +128,12 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* GNB */}
+    <div className="min-h-screen bg-gray-50 flex flex-col">
       <GNB />
 
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-20">
+      <div className="flex-1">
+        {/* Hero Section */}
+        <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-20">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h1 className="text-4xl md:text-5xl font-noto-bold text-gray-900 mb-6">
             Contact Us
@@ -342,9 +342,10 @@ export default function ContactPage() {
             </form>
           </div>
         </div>
-      </section>
+        </section>
+        </div>
+      </div>
 
-      {/* Footer */}
       <Footer />
     </div>
   );

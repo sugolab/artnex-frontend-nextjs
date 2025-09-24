@@ -201,7 +201,7 @@ export default function GNB({ variant = 'black', className = '' }: GNBProps) {
               </div>
             </Link>
             <Link href="/register" className="bg-gray-200 border border-gray-300 box-border content-stretch flex gap-[7px] h-[50px] items-center justify-center px-[30px] py-[12px] relative rounded-[100px] shrink-0 no-underline">
-              <div className="flex flex-col font-['Poppins:Medium',_sans-serif] justify-center leading-[0] not-italic relative shrink-0 text-[#262d33] text-[18px] text-center text-nowrap uppercase">
+              <div className="flex flex-col font-['Poppins:Medium',_sans-serif] justify-center leading-[0] not-italic relative shrink-0 text-text-title text-[18px] text-center text-nowrap uppercase">
                 <p className="leading-[normal] whitespace-pre">회원가입</p>
               </div>
             </Link>
@@ -214,7 +214,7 @@ export default function GNB({ variant = 'black', className = '' }: GNBProps) {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col font-['Poppins:Medium',_sans-serif] justify-center leading-[0] not-italic relative shrink-0 text-[#262d33] text-[18px] text-center text-nowrap uppercase">
+              <div className="flex flex-col font-['Poppins:Medium',_sans-serif] justify-center leading-[0] not-italic relative shrink-0 text-text-title text-[18px] text-center text-nowrap uppercase">
                 <p className="leading-[normal] whitespace-pre">contact</p>
               </div>
             </Link>

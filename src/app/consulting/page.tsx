@@ -74,12 +74,12 @@ export default function BrandConsultingStartPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* GNB */}
+    <div className="min-h-screen bg-white flex flex-col">
       <GNB />
 
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-20">
+      <div className="flex-1">
+        {/* Hero Section */}
+        <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-20">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <div className="mb-8">
             <Logo size="large" />
@@ -218,9 +218,10 @@ export default function BrandConsultingStartPage() {
             💡 회원가입 후 이용 가능 · 📊 결과 리포트 무료 제공 · 🔒 정보 보안 완벽 보장
           </div>
         </div>
-      </section>
+        </section>
+        </div>
+      </div>
 
-      {/* Footer */}
       <Footer />
     </div>
   );

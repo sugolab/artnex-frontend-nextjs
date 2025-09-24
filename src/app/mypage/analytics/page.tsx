@@ -112,8 +112,7 @@ export default function MyPageAnalytics() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* GNB */}
+    <div className="min-h-screen bg-gray-50 flex flex-col">
       <GNB />
 
       {/* Header Section */}
@@ -162,8 +161,9 @@ export default function MyPageAnalytics() {
         </div>
       </section>
 
-      {/* Charts and Analytics */}
-      <section className="py-8">
+      <div className="flex-1">
+        {/* Charts and Analytics */}
+        <section className="py-8">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
             {/* Monthly Reports Chart */}
@@ -313,9 +313,10 @@ export default function MyPageAnalytics() {
             </div>
           </div>
         </div>
-      </section>
+        </section>
+        </div>
+      </div>
 
-      {/* Footer */}
       <Footer />
     </div>
   );
