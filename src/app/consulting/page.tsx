@@ -215,7 +215,7 @@ export default function BrandConsultingStartPage() {
           </div>
 
           <div className="mt-8 text-sm font-noto-medium text-blue-200">
-            💡 회원가입 후 이용 가능 · 📊 결과 리포트 무료 제공 · 🔒 정보 보안 완벽 보장
+            회원가입 후 이용 가능 · 결과 리포트 무료 제공 · 정보 보안 완벽 보장
           </div>
         </div>
         </section>

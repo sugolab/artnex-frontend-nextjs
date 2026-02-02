@@ -3,453 +3,230 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { GNB, Footer } from '@/components/layout';
-import { useBidReportStore } from '@/store/bid-report';
 
 export default function BrandManagementPage() {
   const router = useRouter();
-  const { currentStep, nextStep, prevStep } = useBidReportStore();
-
+  
   const [perceivedQuality, setPerceivedQuality] = useState('');
   const [brandLoyalty, setBrandLoyalty] = useState('');
   const [associatedImage, setAssociatedImage] = useState('');
 
   const handlePrevious = () => {
-    prevStep();
     router.push('/report/bid/brand-identity');
   };
 
   const handleNext = () => {
-    nextStep();
     router.push('/report/bid/brand-planning');
   };
 
   return (
-    <div className="min-h-screen bg-neutral-100 flex flex-col" data-name="AI리포트 > BID Report > Brand's Management" data-node-id="2:3483">
+    <div className="min-h-screen bg-white flex flex-col">
       <GNB variant="standard" />
       
-      <div className="flex-1 relative">
-
-      {/* Gray background section - LNB area */}
-      <div className="absolute bg-neutral-100 h-[42px] left-[15px] rounded-[5px] top-[85px] w-[331px]" />
-
-      {/* Main Content Area - 1150×auto */}
-      <div className="absolute flex flex-col gap-[20px] items-start left-[385px] top-[90px] w-[1150px]">
-
-        {/* 지각된 품질 Section */}
-        <div className="bg-white box-border flex flex-col gap-[20px] items-start px-[29px] py-[30px] relative rounded-[5px] shadow-[4px_4px_10px_0px_rgba(0,0,0,0.05)] w-full">
-          <div className="flex items-start justify-between relative w-[1090px]">
-            <div className="flex gap-[10px] items-start">
-              <div className="flex font-['Noto_Sans_KR:Medium',_sans-serif] font-medium gap-[3px] items-center text-[21px]">
-                <div className="text-black">
-                  <p>지각된 품질</p>
-                </div>
-                <div className="text-[#e50050]">
-                  <p>*</p>
-                </div>
-              </div>
-              <div className="overflow-clip relative size-[24px]">
-                <div className="absolute inset-[8.333%]">
-                  <img alt="" className="block max-w-none size-full" src="/figma-assets/784375fac8b173e795dc865a7d821ff3498b7551.svg" />
-                </div>
-                <div className="absolute inset-[29.15%_37.83%_45.83%_37.88%]">
-                  <img alt="" className="block max-w-none size-full" src="/figma-assets/8d04f0d9ec1683a70284abe90b0d6e4c43c31791.svg" />
-                </div>
-                <div className="absolute bottom-[31.25%] left-1/2 right-1/2 top-[66.67%]">
-                  <img alt="" className="block max-w-none size-full" src="/figma-assets/ba2abe6eb11039e7e5f6113667c7dc30fe89b036.svg" />
-                </div>
-              </div>
-            </div>
-            <div className="flex gap-[10px] items-center justify-end w-[596px]">
-              <div className="font-['Noto_Sans_KR:Regular',_sans-serif] font-normal text-[#909096] text-[18px] text-right">
-                <p>{perceivedQuality.length}/500</p>
-              </div>
+      <div className="flex-1 relative bg-gray-50">
+        {/* LNB - Left Navigation Bar */}
+        <div className="absolute left-0 top-0 w-[280px] h-full bg-white border-r border-gray-200">
+          {/* Header */}
+          <div className="h-[80px] flex items-center px-6 border-b border-gray-200">
+            <div className="font-['Noto_Sans_KR'] font-medium text-xl text-black">
+              AI리포트
             </div>
           </div>
-          <div className="bg-white box-border border border-[#dddddd] flex gap-[10px] h-[300px] items-start p-[20px] relative rounded-[5px] w-[1090px]">
-            <textarea
-              value={perceivedQuality}
-              onChange={(e) => setPerceivedQuality(e.target.value)}
-              maxLength={500}
-              placeholder="Perceived Quality"
-              className="w-full h-full resize-none border-none outline-none font-['Noto_Sans_KR:Regular',_sans-serif] text-[15px] leading-[22px]"
-            />
-          </div>
-        </div>
 
-        {/* 브랜드 로열티 Section */}
-        <div className="bg-white box-border flex flex-col gap-[20px] items-start px-[29px] py-[30px] relative rounded-[5px] shadow-[4px_4px_10px_0px_rgba(0,0,0,0.05)] w-full">
-          <div className="flex items-start justify-between relative w-[1090px]">
-            <div className="flex gap-[10px] items-start">
-              <div className="flex font-['Noto_Sans_KR:Medium',_sans-serif] font-medium gap-[3px] items-center text-[21px]">
-                <div className="text-black">
-                  <p>브랜드 로열티</p>
-                </div>
-                <div className="text-[#e50050]">
-                  <p>*</p>
-                </div>
-              </div>
-              <div className="overflow-clip relative size-[24px]">
-                <div className="absolute inset-[8.333%]">
-                  <img alt="" className="block max-w-none size-full" src="/figma-assets/784375fac8b173e795dc865a7d821ff3498b7551.svg" />
-                </div>
-                <div className="absolute inset-[29.15%_37.83%_45.83%_37.88%]">
-                  <img alt="" className="block max-w-none size-full" src="/figma-assets/8d04f0d9ec1683a70284abe90b0d6e4c43c31791.svg" />
-                </div>
-                <div className="absolute bottom-[31.25%] left-1/2 right-1/2 top-[66.67%]">
-                  <img alt="" className="block max-w-none size-full" src="/figma-assets/ba2abe6eb11039e7e5f6113667c7dc30fe89b036.svg" />
+          {/* Navigation Items */}
+          <div className="p-6">
+            <nav className="space-y-2">
+              {/* BID Report - Active */}
+              <div className="bg-gray-100 px-4 py-3 rounded-lg">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-6 h-6 bg-white border-2 border-gray-800 rounded flex items-center justify-center">
+                      <span className="text-xs font-bold text-gray-800">BID</span>
+                    </div>
+                    <span className="text-black underline font-['Noto_Sans_KR'] font-medium">BID Report</span>
+                  </div>
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="rotate-90">
+                    <path d="M6 4L10 8L6 12" stroke="#666" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
                 </div>
               </div>
-            </div>
-            <div className="flex gap-[10px] items-center justify-end w-[596px]">
-              <div className="font-['Noto_Sans_KR:Regular',_sans-serif] font-normal text-[#909096] text-[18px] text-right">
-                <p>{brandLoyalty.length}/500</p>
+              
+              {/* Other Reports */}
+              <div className="px-4 py-3 flex items-center space-x-3">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <rect x="2" y="3" width="16" height="12" rx="2" stroke="#666" strokeWidth="1.5"/>
+                  <circle cx="7" cy="8" r="1.5" fill="#666"/>
+                  <path d="L11 11L13 9L17 13" stroke="#666" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                <span className="text-black font-['Noto_Sans_KR']">Visual Report</span>
               </div>
-            </div>
-          </div>
-          <div className="bg-white box-border border border-[#dddddd] flex gap-[10px] h-[300px] items-start p-[20px] relative rounded-[5px] w-[1090px]">
-            <textarea
-              value={brandLoyalty}
-              onChange={(e) => setBrandLoyalty(e.target.value)}
-              maxLength={500}
-              placeholder="Brand Loyalty"
-              className="w-full h-full resize-none border-none outline-none font-['Noto_Sans_KR:Regular',_sans-serif] text-[15px] leading-[22px]"
-            />
+              <div className="px-4 py-3 flex items-center space-x-3">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <rect x="2" y="2" width="16" height="16" rx="2" stroke="#666" strokeWidth="1.5"/>
+                  <rect x="4" y="6" width="2" height="10" fill="#666"/>
+                  <rect x="8" y="4" width="2" height="12" fill="#666"/>
+                  <rect x="12" y="8" width="2" height="8" fill="#666"/>
+                </svg>
+                <span className="text-black font-['Noto_Sans_KR']">Marketing Report</span>
+              </div>
+            </nav>
           </div>
         </div>
 
-        {/* 연상 이미지 Section */}
-        <div className="bg-white box-border flex flex-col gap-[20px] items-start px-[29px] py-[30px] relative rounded-[5px] shadow-[4px_4px_10px_0px_rgba(0,0,0,0.05)] w-full">
-          <div className="flex items-start justify-between relative w-[1090px]">
-            <div className="flex gap-[10px] items-start">
-              <div className="flex font-['Noto_Sans_KR:Medium',_sans-serif] font-medium gap-[3px] items-center text-[21px]">
-                <div className="text-black">
-                  <p>연상 이미지</p>
-                </div>
-                <div className="text-[#e50050]">
-                  <p>*</p>
-                </div>
-              </div>
-              <div className="overflow-clip relative size-[24px]">
-                <div className="absolute inset-[8.333%]">
-                  <img alt="" className="block max-w-none size-full" src="/figma-assets/784375fac8b173e795dc865a7d821ff3498b7551.svg" />
-                </div>
-                <div className="absolute inset-[29.15%_37.83%_45.83%_37.88%]">
-                  <img alt="" className="block max-w-none size-full" src="/figma-assets/8d04f0d9ec1683a70284abe90b0d6e4c43c31791.svg" />
-                </div>
-                <div className="absolute bottom-[31.25%] left-1/2 right-1/2 top-[66.67%]">
-                  <img alt="" className="block max-w-none size-full" src="/figma-assets/ba2abe6eb11039e7e5f6113667c7dc30fe89b036.svg" />
-                </div>
-              </div>
-            </div>
-            <div className="flex gap-[10px] items-center justify-end w-[596px]">
-              <div className="font-['Noto_Sans_KR:Regular',_sans-serif] font-normal text-[#909096] text-[18px] text-right">
-                <p>{associatedImage.length}/500</p>
-              </div>
+        {/* Main Content Area */}
+        <div className="ml-[280px] mr-[320px] min-h-full">
+          {/* Process Indicator */}
+          <div className="bg-white border-b border-gray-200 px-6 py-4">
+            <div className="flex items-center space-x-3 text-sm">
+              <span className="text-gray-400 font-['Noto_Sans_KR']">01. Brand Identity</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M6 4L10 8L6 12" stroke="#ccc" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+              <span className="text-black font-['Noto_Sans_KR'] font-medium">02. Brand's Management</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M6 4L10 8L6 12" stroke="#ccc" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+              <span className="text-gray-400 font-['Noto_Sans_KR']">03. Brand Planning</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M6 4L10 8L6 12" stroke="#ccc" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+              <span className="text-gray-400 font-['Noto_Sans_KR']">04. Competitor Analysis</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M6 4L10 8L6 12" stroke="#ccc" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+              <span className="text-gray-400 font-['Noto_Sans_KR']">05. Brand Logo</span>
             </div>
           </div>
-          <div className="bg-white box-border border border-[#dddddd] flex gap-[10px] h-[300px] items-start p-[20px] relative rounded-[5px] w-[1090px]">
-            <textarea
-              value={associatedImage}
-              onChange={(e) => setAssociatedImage(e.target.value)}
-              maxLength={500}
-              placeholder="Associated Image"
-              className="w-full h-full resize-none border-none outline-none font-['Noto_Sans_KR:Regular',_sans-serif] text-[15px] leading-[22px]"
-            />
+
+          {/* Form Content */}
+          <div className="p-8 space-y-8">
+            {/* 지각된 품질 */}
+            <div className="bg-white rounded-lg shadow-sm p-6">
+              <div className="flex items-start justify-between mb-4">
+                <div className="flex items-center space-x-2">
+                  <h3 className="text-xl font-['Noto_Sans_KR'] font-medium text-black">지각된 품질</h3>
+                  <span className="text-red-500">*</span>
+                  <div className="w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center">
+                    <span className="text-gray-400 text-xs">?</span>
+                  </div>
+                </div>
+                <span className="text-gray-400 text-sm">{perceivedQuality.length}/500</span>
+              </div>
+              <textarea
+                value={perceivedQuality}
+                onChange={(e) => setPerceivedQuality(e.target.value)}
+                maxLength={500}
+                placeholder="Perceived Quality"
+                className="w-full h-[300px] p-4 border border-gray-300 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent font-['Noto_Sans_KR'] text-sm"
+              />
+            </div>
+
+            {/* 브랜드 로열티 */}
+            <div className="bg-white rounded-lg shadow-sm p-6">
+              <div className="flex items-start justify-between mb-4">
+                <div className="flex items-center space-x-2">
+                  <h3 className="text-xl font-['Noto_Sans_KR'] font-medium text-black">브랜드 로열티</h3>
+                  <span className="text-red-500">*</span>
+                  <div className="w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center">
+                    <span className="text-gray-400 text-xs">?</span>
+                  </div>
+                </div>
+                <span className="text-gray-400 text-sm">{brandLoyalty.length}/500</span>
+              </div>
+              <textarea
+                value={brandLoyalty}
+                onChange={(e) => setBrandLoyalty(e.target.value)}
+                maxLength={500}
+                placeholder="Brand Loyalty"
+                className="w-full h-[300px] p-4 border border-gray-300 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent font-['Noto_Sans_KR'] text-sm"
+              />
+            </div>
+
+            {/* 연상 이미지 */}
+            <div className="bg-white rounded-lg shadow-sm p-6">
+              <div className="flex items-start justify-between mb-4">
+                <div className="flex items-center space-x-2">
+                  <h3 className="text-xl font-['Noto_Sans_KR'] font-medium text-black">연상 이미지</h3>
+                  <span className="text-red-500">*</span>
+                  <div className="w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center">
+                    <span className="text-gray-400 text-xs">?</span>
+                  </div>
+                </div>
+                <span className="text-gray-400 text-sm">{associatedImage.length}/500</span>
+              </div>
+              <textarea
+                value={associatedImage}
+                onChange={(e) => setAssociatedImage(e.target.value)}
+                maxLength={500}
+                placeholder="Associated Image"
+                className="w-full h-[300px] p-4 border border-gray-300 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent font-['Noto_Sans_KR'] text-sm"
+              />
+            </div>
+
+            {/* Navigation Buttons */}
+            <div className="flex space-x-4">
+              <button
+                onClick={handlePrevious}
+                className="flex-1 bg-gray-800 text-white py-4 rounded-lg font-['Noto_Sans_KR'] font-medium hover:bg-gray-900 transition-colors flex items-center justify-center space-x-2"
+              >
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M12 6L8 10L12 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                <span>이전</span>
+              </button>
+              <button
+                onClick={handleNext}
+                className="flex-1 bg-gray-800 text-white py-4 rounded-lg font-['Noto_Sans_KR'] font-medium hover:bg-gray-900 transition-colors flex items-center justify-center space-x-2"
+              >
+                <span>다음</span>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M8 6L12 10L8 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
 
-        {/* Bottom Navigation Buttons */}
-        <div className="flex gap-[20px] items-start relative w-[1150px]">
-          <button
-            onClick={handlePrevious}
-            className="basis-0 bg-[#252c32] box-border flex gap-[10px] grow h-[68px] items-center justify-center px-[529px] py-[21px] relative rounded-[5px] text-white"
-          >
-            <div className="flex items-center justify-center">
-              <div className="rotate-[180deg] scale-y-[-100%]">
-                <div className="h-[21px] overflow-clip relative w-[24px]">
-                  <div className="absolute flex inset-[4.76%_9.11%_7.33%_14.74%] items-center justify-center">
-                    <div className="rotate-[314.711deg] size-[12.989px] skew-x-[359.421deg]">
-                      <div className="relative size-full">
-                        <div className="absolute bottom-[-7.7%] left-0 right-[-7.7%] top-0">
-                          <img alt="" className="block max-w-none size-full" src="/figma-assets/aca897316f90bb9ff628f508ef77f268f65ff34a.svg" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="absolute bg-white inset-[42.86%_8.33%_47.62%_8.33%]" />
-                </div>
-              </div>
+        {/* Managing Guide Sidebar */}
+        <div className="absolute right-0 top-0 w-[320px] h-full bg-white border-l border-gray-200 p-6">
+          <div className="mb-6">
+            <div className="flex items-center space-x-2 mb-4">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <circle cx="10" cy="10" r="8" stroke="#666" strokeWidth="1.5"/>
+                <path d="M10 6V10L14 12" stroke="#666" strokeWidth="1.5" strokeLinecap="round"/>
+              </svg>
+              <h4 className="text-lg font-['Noto_Sans_KR'] font-medium text-black">Managing Guide</h4>
             </div>
-            <div className="font-['Noto_Sans_KR:Medium',_sans-serif] font-medium text-[22px]">
-              <p>이전</p>
-            </div>
-          </button>
-          <button
-            onClick={handleNext}
-            className="basis-0 bg-[#252c32] box-border flex gap-[10px] grow h-[68px] items-center justify-center px-[529px] py-[21px] relative rounded-[5px] text-white"
-          >
-            <div className="font-['Noto_Sans_KR:Medium',_sans-serif] font-medium text-[22px]">
-              <p>다음</p>
-            </div>
-            <div className="h-[21px] overflow-clip relative w-[24px]">
-              <div className="absolute flex inset-[4.76%_9.11%_7.33%_14.74%] items-center justify-center">
-                <div className="rotate-[314.711deg] size-[12.989px] skew-x-[359.421deg]">
-                  <div className="relative size-full">
-                    <div className="absolute bottom-[-7.7%] left-0 right-[-7.7%] top-0">
-                      <img alt="" className="block max-w-none size-full" src="/figma-assets/aca897316f90bb9ff628f508ef77f268f65ff34a.svg" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="absolute bg-white inset-[42.86%_8.33%_47.62%_8.33%]" />
-            </div>
-          </button>
-        </div>
-      </div>
-
-      {/* LNB - Left Navigation - 360×1453 */}
-      <div className="absolute flex flex-col h-[1453px] items-start left-0 top-0 w-[360px]">
-        <div className="bg-white box-border flex gap-[10px] h-[70px] items-center px-[20px] py-[22px] relative w-full border-[#dddddd] border-[1px_0px]">
-          <div className="font-['Noto_Sans_KR:Medium',_sans-serif] font-medium text-[21px] text-black">
-            <p>AI리포트</p>
+            <div className="h-px bg-gray-200 mb-6"></div>
           </div>
-        </div>
-        <div className="basis-0 bg-white box-border flex flex-col gap-[10px] grow items-center px-[19px] py-[20px] relative w-full border-[#dddddd] border-[1px_1px_0px_0px]">
-          <div className="flex flex-col gap-[20px] items-center justify-center relative w-[320px]">
-            <div className="bg-neutral-100 box-border flex flex-col gap-[10px] h-[42px] items-start p-[5px] relative rounded-[5px] w-[331px]">
-              <div className="flex gap-[15px] items-center relative w-full">
-                <div className="flex gap-[15px] items-center">
-                  <div className="bg-white box-border flex gap-[10px] items-center justify-center px-[15px] py-0 relative rounded-[3px] size-[24px] border-2 border-[#262d33]">
-                    <div className="font-['Poppins:SemiBold',_sans-serif] text-[#262d33] text-[10px]">
-                      <p>BID</p>
+
+          <div className="space-y-4">
+            <div>
+              <h5 className="font-['Noto_Sans_KR'] font-bold text-black mb-3">브랜드 매니징은 무엇인가요?</h5>
+              <p className="text-sm text-gray-600 font-['Noto_Sans_KR'] leading-relaxed mb-4">
+                브랜드 매니징은 브랜드의 가치를 창출하고 유지하기 위한 전략적 활동입니다.
+                <br /><br />
+                시장에서의 경쟁력을 강화하는 것을 목표로 브랜드의 인지도, 이미지, 충성도 등 브랜드 자산을 관리하여 
+                브랜드의 정체성을 명확히 하고 일관된 메시지를 전달하며, 소비자와의 긍정적인 관계를 관리하는 일입니다.
+              </p>
+              
+              {/* Brand Management Diagram */}
+              <div className="bg-gray-50 p-4 rounded-lg">
+                <div className="w-full h-40 bg-white rounded border flex items-center justify-center">
+                  <div className="text-center text-gray-400">
+                    <div className="w-16 h-16 mx-auto mb-2 bg-gray-100 rounded-full flex items-center justify-center">
+                      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                        <rect x="4" y="4" width="24" height="24" rx="4" stroke="currentColor" strokeWidth="2"/>
+                        <path d="M12 16L16 20L24 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
                     </div>
-                  </div>
-                  <div className="font-['Poppins:Regular',_sans-serif] text-[21px] text-black w-[243px] underline">
-                    <p>BID Report</p>
-                  </div>
-                </div>
-                <div className="flex h-[24px] items-center justify-center w-[24px]">
-                  <div className="rotate-[270deg]">
-                    <div className="overflow-clip relative size-[24px]">
-                      <div className="absolute inset-[30%_15%]">
-                        <img alt="" className="block max-w-none size-full" src="/figma-assets/834dc8b9abdc22a6625162397fb4c68010da466b.svg" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="flex gap-[15px] items-center relative w-full">
-              <div className="relative size-[24px]">
-                <div className="absolute bottom-0 left-0 right-0 top-[33.33%]">
-                  <img alt="" className="block max-w-none size-full" src="/figma-assets/229e90233515063d91402e4323971d364773c476.svg" />
-                </div>
-                <div className="absolute bottom-[16.67%] left-[33.33%] right-[33.33%] top-1/2">
-                  <img alt="" className="block max-w-none size-full" src="/figma-assets/77a31112f0831a05a53adbf7314a9812e0936a99.svg" />
-                </div>
-                <div className="absolute bottom-[75%] left-[45.83%] right-[45.83%] top-0">
-                  <img alt="" className="block max-w-none size-full" src="/figma-assets/d633075eab0e2c526438cbb3b8054759029aa0bb.svg" />
-                </div>
-                <div className="absolute flex inset-[9.64%_8.38%_67.79%_72.33%] items-center justify-center">
-                  <div className="h-[2.001px] rotate-[125.025deg] w-[5.214px]">
-                    <img alt="" className="block max-w-none size-full" src="/figma-assets/25627a21fc543a5dd9f34507d2306bf149633b93.svg" />
-                  </div>
-                </div>
-                <div className="absolute flex inset-[9.68%_72.33%_67.74%_8.37%] items-center justify-center">
-                  <div className="h-[2.001px] rotate-[54.975deg] w-[5.216px]">
-                    <img alt="" className="block max-w-none size-full" src="/figma-assets/99700eab26d0823f1818310cc385d47c8e233a15.svg" />
-                  </div>
-                </div>
-              </div>
-              <div className="font-['Poppins:Regular',_sans-serif] text-[21px] text-black w-[243px]">
-                <p>Visual Report</p>
-              </div>
-              <div className="flex h-[24px] items-center justify-center w-[24px]">
-                <div className="rotate-[270deg]">
-                  <div className="overflow-clip relative size-[24px]">
-                    <div className="absolute inset-[30%_15%]">
-                      <img alt="" className="block max-w-none size-full" src="/figma-assets/834dc8b9abdc22a6625162397fb4c68010da466b.svg" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="flex gap-[15px] items-center relative w-full">
-              <div className="flex items-center justify-center">
-                <div className="scale-y-[-100%]">
-                  <div className="relative size-[24px]">
-                    <div className="absolute inset-[2.93%_65.82%_53.71%_8.79%]">
-                      <img alt="" className="block max-w-none size-full" src="/figma-assets/9dc7ce567fc01b7763a7f5e9277de0ccc9dd348b.svg" />
-                    </div>
-                    <div className="absolute inset-[26.76%_26.76%_2.93%_34.18%]">
-                      <img alt="" className="block max-w-none size-full" src="/figma-assets/1a14f938ff6154cb4bccc0df282dbcf75a33b864.svg" />
-                    </div>
-                    <div className="absolute inset-[46.29%_65.82%_22.46%_14.65%]">
-                      <img alt="" className="block max-w-none size-full" src="/figma-assets/800b43a0d1b04e4ca34691472aead66828a8bc2c.svg" />
-                    </div>
-                    <div className="absolute inset-[52.15%_85.35%_28.32%_2.93%]">
-                      <img alt="" className="block max-w-none size-full" src="/figma-assets/af8dfccec32c9860b45c201704f2c4eb53d75d07.svg" />
-                    </div>
-                    <div className="absolute inset-[61.91%_2.93%_38.09%_89.26%]">
-                      <img alt="" className="block max-w-none size-full" src="/figma-assets/627ed736e99049d6145cbb2f178f6f4fcb8540a1.svg" />
-                    </div>
-                    <div className="absolute inset-[75.27%_5.76%_22.05%_86.9%]">
-                      <img alt="" className="block max-w-none size-full" src="/figma-assets/1ecddc8f83ec78b562353ae11c1093699eed7bfb.svg" />
-                    </div>
-                    <div className="absolute inset-[45.88%_5.76%_51.45%_86.9%]">
-                      <img alt="" className="block max-w-none size-full" src="/figma-assets/82e9de23cedffb7e6ecf864985167a02dea602c9.svg" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="font-['Poppins:Regular',_sans-serif] text-[21px] text-black w-[243px]">
-                <p>Marketing Report</p>
-              </div>
-              <div className="flex h-[24px] items-center justify-center w-[24px]">
-                <div className="rotate-[270deg]">
-                  <div className="overflow-clip relative size-[24px]">
-                    <div className="absolute inset-[30%_15%]">
-                      <img alt="" className="block max-w-none size-full" src="/figma-assets/834dc8b9abdc22a6625162397fb4c68010da466b.svg" />
-                    </div>
+                    <p className="text-xs">Brand Management Process</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Managing Guide - Right Sidebar - 360×1383 */}
-      <div className="absolute bg-white box-border flex gap-[10px] h-[1383px] items-start justify-center px-0 py-[20px] right-0 top-[70px] w-[360px] border-[#dddddd] border-[1px_0px_0px]">
-        <div className="flex flex-col gap-[20px] items-center relative w-[360px]">
-          <div className="flex gap-[10px] items-center relative w-[320px]">
-            <div className="h-[24px] relative w-[18.857px]">
-              <img alt="" className="block max-w-none size-full" src="/figma-assets/3c5b10d2393b3c59783443197fc4c87d1c66c91f.svg" />
-            </div>
-            <div className="font-['Poppins:Medium',_sans-serif] text-[21px] text-black w-[290px]">
-              <p>Managing Guide</p>
-            </div>
-          </div>
-          <div className="h-0 relative w-full">
-            <div className="absolute bottom-0 left-0 right-0 top-[-1px]">
-              <img alt="" className="block max-w-none size-full" src="/figma-assets/b59a22192d0c9c5c2d8973503e090b8a539754d6.svg" />
-            </div>
-          </div>
-          <div className="flex flex-col gap-[10px] items-start relative w-[320px]">
-            <div className="font-['Noto_Sans_KR:Bold',_sans-serif] font-bold text-[16px] text-black w-full">
-              <p className="leading-[25px]">브랜드는 매니징은 무엇인가요?</p>
-            </div>
-            <div className="font-['Noto_Sans_KR:Regular',_sans-serif] font-normal leading-[21px] text-[#262d33] text-[14px] w-full">
-              <p className="mb-0">브랜드 매니징은 브랜드의 가치를 창출하고 유지하기</p>
-              <p className="mb-0">위한 전략적 활동입니다.</p>
-              <p className="mb-0">&nbsp;</p>
-              <p className="mb-0">시장에서의 경쟁력을 강화하는 것을 목표로 브랜드의</p>
-              <p className="mb-0">인지도, 이미지, 충성도 등 브랜드 자산을 관리하여</p>
-              <p className="mb-0">브랜드의 정체성을 명확히 하고 일관된 메시지를</p>
-              <p className="mb-0">전달하며, 소비자와의 긍정적인 관계를 관리하는</p>
-              <p>일입니다.</p>
-            </div>
-            <div className="aspect-[489/295] bg-center bg-contain bg-no-repeat w-full" style={{ backgroundImage: `url('/figma-assets/54176c173f6e532d3cb4ebfdff08ddef17915449.png')` }} />
-          </div>
-          <div className="h-0 relative w-full">
-            <div className="absolute bottom-0 left-0 right-0 top-[-1px]">
-              <img alt="" className="block max-w-none size-full" src="/figma-assets/b59a22192d0c9c5c2d8973503e090b8a539754d6.svg" />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Process Indicator - 1560×70 */}
-      <div className="absolute bg-white box-border flex flex-col gap-[10px] h-[70px] items-start px-[25px] py-[19px] right-0 top-0 w-[1560px] border-[#dddddd] border-[1px_0px_1px_1px]">
-        <div className="flex gap-[10px] items-center relative">
-          {/* 01. Brand Identity */}
-          <div className="flex font-['Poppins:Medium',_sans-serif] font-medium gap-[5px] items-center text-[#909096] text-[21px] leading-[32px] h-[32px]">
-            <div className="w-[31px] h-[32px] flex items-center">
-              <p>01.</p>
-            </div>
-            <div className="w-[163px] h-[32px] flex items-center">
-              <p>Brand Identity</p>
-            </div>
-          </div>
-
-          {/* Arrow Icon */}
-          <div className="flex h-[24px] items-center justify-center w-[24px] rotate-[-90deg]">
-            <div className="h-[24px] w-[24px]">
-              <div className="absolute left-[30%] right-0 top-[15%] bottom-[45%] bg-[#909096]" style={{ transform: 'rotate(-90deg)' }}>
-                <img alt="" className="block max-w-none size-full" src="/figma-assets/2357da0c49ce157b9c82b9dc32b2b0804c785bef.svg" />
-              </div>
-            </div>
-          </div>
-
-          {/* 02. Brand's Management - ACTIVE */}
-          <div className="flex font-['Poppins:Medium',_sans-serif] font-medium gap-[5px] items-center text-[#262d33] text-[21px] leading-[32px] h-[32px]">
-            <div className="w-[31px] h-[32px] flex items-center">
-              <p>02.</p>
-            </div>
-            <div className="w-[230px] h-[32px] flex items-center">
-              <p>Brand&apos;s Management</p>
-            </div>
-          </div>
-
-          {/* Arrow Icon */}
-          <div className="flex h-[24px] items-center justify-center w-[24px] rotate-[-90deg]">
-            <div className="h-[24px] w-[24px]">
-              <div className="absolute left-[30%] right-0 top-[15%] bottom-[45%] bg-[#909096]" style={{ transform: 'rotate(-90deg)' }}>
-                <img alt="" className="block max-w-none size-full" src="/figma-assets/2357da0c49ce157b9c82b9dc32b2b0804c785bef.svg" />
-              </div>
-            </div>
-          </div>
-
-          {/* 03. Brand Planning */}
-          <div className="flex font-['Poppins:Medium',_sans-serif] font-medium gap-[5px] items-center text-[#909096] text-[21px] leading-[32px] h-[32px] w-[198px]">
-            <div className="w-[31px] h-[32px] flex items-center">
-              <p>03.</p>
-            </div>
-            <div className="flex items-center">
-              <p>Brand Planning</p>
-            </div>
-          </div>
-
-          {/* Arrow Icon */}
-          <div className="flex h-[24px] items-center justify-center w-[24px] rotate-[-90deg]">
-            <div className="h-[24px] w-[24px]">
-              <div className="absolute left-[30%] right-0 top-[15%] bottom-[45%] bg-[#909096]" style={{ transform: 'rotate(-90deg)' }}>
-                <img alt="" className="block max-w-none size-full" src="/figma-assets/2357da0c49ce157b9c82b9dc32b2b0804c785bef.svg" />
-              </div>
-            </div>
-          </div>
-
-          {/* 04. Competitor Analysis */}
-          <div className="flex font-['Poppins:Medium',_sans-serif] font-medium gap-[5px] items-center text-[#909096] text-[21px] leading-[32px] h-[32px]">
-            <div className="w-[31px] h-[32px] flex items-center">
-              <p>04.</p>
-            </div>
-            <div className="flex items-center">
-              <p>Competitor Analysis</p>
-            </div>
-          </div>
-
-          {/* Arrow Icon */}
-          <div className="flex h-[24px] items-center justify-center w-[24px] rotate-[-90deg]">
-            <div className="h-[24px] w-[24px]">
-              <div className="absolute left-[30%] right-0 top-[15%] bottom-[45%] bg-[#909096]" style={{ transform: 'rotate(-90deg)' }}>
-                <img alt="" className="block max-w-none size-full" src="/figma-assets/2357da0c49ce157b9c82b9dc32b2b0804c785bef.svg" />
-              </div>
-            </div>
-          </div>
-
-          {/* 05. Brand Logo */}
-          <div className="flex font-['Poppins:Medium',_sans-serif] font-medium gap-[5px] items-center text-[#909096] text-[21px] leading-[32px] h-[32px]">
-            <div className="w-[31px] h-[32px] flex items-center">
-              <p>05.</p>
-            </div>
-            <div className="flex items-center">
-              <p>Brand Logo</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
       </div>
 
       <Footer />
